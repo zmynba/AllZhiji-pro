@@ -1,0 +1,50 @@
+{
+	"chatList": [
+		{
+			"id": "1",
+			"coverUrl": "http://alivod.xxshow.com/images/icon/100104297/20180914203341.png",
+			"headUrl": "http://alivod.xxshow.com/images/icon/100104297/20180914203341.png",
+			"name": "🌸HuyềnTrân",
+			"age": "21",
+			"gender": "2",
+			"address": "越南",
+			"isOnline": true
+		},
+		{
+			"id": 2,
+			"coverUrl": "http://alivod.xxshow.com/images/icon/100103503/2018109123129.png",
+			"headUrl": "http://alivod.xxshow.com/images/icon/100103503/2018109123129.png",
+			"name": "🌹Rose🌹",
+			"age": "28",
+			"gender": "2",
+			"address": "俄罗斯",
+			"isOnline": true
+		}
+	],
+	"dynamList": [
+		{
+			"id": "1",
+			"headUrl": "http://alivod.xxshow.com/images/icon/100104297/20180914203341.png",
+			"name": "青青子衿",
+			"time": "2分钟前",
+			"content": "这里是动态内容部分这里是动态内容部分这里是动态内容部分这里是动态内容部分这里是动态内容部分",
+			"img": "http://alivod.xxshow.com/images/icon/100104297/20180914203341.png",
+			"zan": "666",
+			"ping": "12",
+			"translate": "This is the dynamic content part.This is the dynamic content part.",
+			"isTranslate": false
+		},
+		{
+			"id": "2",
+			"headUrl": "http://alivod.xxshow.com/images/icon/100103503/2018109123129.png",
+			"name": "🌹Rose🌹",
+			"time": "20分钟前",
+			"content": "哎呦，还不错哦",
+			"img": "http://alivod.xxshow.com/images/icon/100103503/2018109123129.png",
+			"zan": "99",
+			"ping": "120",
+			"translate": "This is the dynamic content part.",
+			"isTranslate": false
+		}
+	]
+}

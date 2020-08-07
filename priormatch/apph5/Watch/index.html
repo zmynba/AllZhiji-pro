@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>我看过的</title>
+		<meta name="keywords" content="BothLive">
+		<meta name="description" content="BothLive">
+		<link rel="stylesheet" href="../../page/css/main.css?v20181130" />
+		<link rel="stylesheet" href="../../page/css/index.css?v20181130" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="seen" v-cloak>
+			<!--头部-->
+			<header id="header"></header>
+			
+			<!--主体-->
+			<div class="seen main-relative">
+				<ul class="main-box">
+					<li class="main-relative" v-for="item in fansList">
+						<div class="" :data-id="item.uid">
+						<a  class="main-flex main-aic index_pl seen_li" :href="'home.html?uid=' + item.uid + '&type=2'" >
+							<!--左(头像)-->
+							<div class="main-relative fans_lf">
+								<img class="main-radius main-w10" v-lazy="item.uinfo.avatar" :key="item.uinfo.avatar" onerror="this.src='img/default.png'"/>
+							</div>
+							<!--右(用户信息)-->
+							<div class="main-bb main-f1 main-flex main-aic main-over index_pr fans_rt">
+								<div class="main-f1 main-over">
+									<div class="main-flex main-aic">
+										<p class="fans_name">{{ item.uinfo.nick }}</p>
+										<!--性别-->
+										<div class="main-flex main-aic fans_gender" :class="{ fans_boy: item.uinfo.gender == 1 }">
+											<img :src="item.uinfo.gender == 1 ? 'img/girl@2x(1).png' : 'img/girl@2x.png' "/>
+											<span class="fans_t1">{{ item.uinfo.age }}</span>
+										</div>
+									</div>
+									<p class="main-ellipsis fans_sign">{{ item.uinfo.sign }}</p>
+								</div>
+								
+								<!--时间及是否正在直播-->
+								<div class="main-tar">
+									<p class="fans_sign">{{ item.addtime }}</p>
+								
+								</div>
+							</div>
+						</a>
+						</div>
+					</li>
+				</ul>
+				<div class="fans"></div>
+			</div>
+		</div>
+		
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+		    if ((navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i))) {
+		        document.write("<script src='cordova_bothlive/cordova.js?v20200316'><\/script>");
+		    }
+		</script>
+		<script src="js/vue.js"></script>
+		<script src="js/lang.js?v20200615a"></script>
+		<script src="js/app.js?v20200615a"></script>
+		<script src="js/index.js?v20200615a"></script>
+	</body>
+</html>

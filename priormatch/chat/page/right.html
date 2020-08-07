@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BothLiveBL</title>
+<meta name="keywords" content="BothLivekey">
+<meta name="description" content="BothLivedes">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+<link rel="stylesheet" href="../css/main.css?v20181229" />
+<link rel="stylesheet" href="../css/index.css?v20181229" />
+<style type=text/css>
+	[v-cloak]{
+		display: none;
+	}
+html{ SCROLLBAR-FACE-COLOR: #538ec6; SCROLLBAR-HIGHLIGHT-COLOR: #dce5f0; SCROLLBAR-SHADOW-COLOR: #2c6daa; SCROLLBAR-3DLIGHT-COLOR: #dce5f0; SCROLLBAR-ARROW-COLOR: #2c6daa;  SCROLLBAR-TRACK-COLOR: #dce5f0;  SCROLLBAR-DARKSHADOW-COLOR: #dce5f0; overflow-x:hidden;}
+body{overflow-x:hidden; margin: 0;background: #dcdcdc;}
+.title-font {
+    width: 100%;
+    background: #ef3535;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+}
+.user-info {
+    background: #FBE9D2;
+	padding: 0 5px;
+	overflow: hidden;
+}
+img.user-ioon-img {
+    width: 50px;
+    border-radius: 50%;
+}
+.user-content {
+    float: left;
+    margin: 3px 0 5px 10px;
+    color: #333;
+}
+.user-icon {
+    float: left;
+}
+.user-uid {
+    font-size: 14px;
+    color: #838383;
+}
+.user-nick {
+    font-size: 18px;
+}
+iframe#loginPage {
+    display: none;
+}
+.user-chat-list {
+    overflow: auto;
+}
+/*整体部分*/ 
+::-webkit-scrollbar
+{
+	width: 5px;
+	height: 10px;
+}
+/*滑动轨道*/ 
+::-webkit-scrollbar-track
+{
+	border-radius: 0px;
+	background: none;
+}
+/*滑块*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(255,255,255,.75)
+}
+/*滑块效果*/ 
+::-webkit-scrollbar-thumb:hover
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(85, 85, 85, 0.4);
+}
+.right-page {
+    margin: 10px 25px;
+    overflow: hidden;
+}
+.page-left {
+    width: 90px;
+    background: #ef3535;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+    float: left;
+}
+.page-right {
+    width: 90px;
+    background: #ef3535;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+    float: right;
+}
+</style>
+</head>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
+	<div id="leftT" v-cloak class="main-box">
+		<div class="title-font">
+			{{ adminLang.liveTitle }}
+			
+		</div>
+		<div class="main-box main-bg main-flex main-aic search_up" style="margin: 10px;">
+			<img class="search_icon" src="../../page/img/news/icon_search.png"/>
+			<input id="searchid" class="main-box main-f1 main-hg search_input" v-model="searchContent" @input="tapSerach()" type="text" placeholder="ID" />
+		</div>
+		<div class="user-chat-list" :style="'height:' + height + 'px'">
+			<!--列表-->
+			<ul class="main-box slide_height online_chat_list">
+				<li class="main-box online_chat_li" v-for="item in recommendList">
+					<a :href="'home.html?cid='+item.uid" class="main-block" target="mainFrame" onFocus="this.blur()">
+						<div class="main-box">
+							<!--<img class="main-w10 main-vat online_chat_img" :src="item.profileImageURL"  :onerror="defaultImg"/>-->
+							<img class="main-w10 main-vat online_chat_img" :src="item.avatar" :key="item.avatar"/>
+						</div>
+						<div class="main-box main-bg main-relative online_chat_content">
+							<img class="online_chat_head" :src="item.avatar"  :onerror="defaultImg"/>
+							<img v-if="item.online == 1" class="online_chat_gender" src="../../page/img/online/icon_sex.png"/>
+							<img v-else class="online_chat_gender" src="../../page/img/online/Stealth@2x.png"/>
+							<p class="main-ellipsis online_chat_name">{{ item.nick }}</p>
+							<div class="main-flex main-aic online_hg">
+								<img width="12" :src="item.gender == 1 ? '../../page/img/home/icon_boy.png' : '../../page/img/home/icon_girl.png'"/>
+								<span class="online_chat_age online_pd">{{ item.age }}</span>
+								<p class="main-ellipsis online_chat_age">{{ item.country }}</p>
+							</div>
+							<!--<p class="main-ellipsis online_chat_age">{{ item.gender == 1 ? interLang.boy : interLang.girl }} · {{ item.age }} · {{ item.country == '' ? interLang.noLocation : item.country }}</p>-->
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="right-page">
+			<div v-show="pages!==1" class="page-left" @click="sendpage(0)">{{ adminLang.Previous }}</div>
+			<div class="page-right" @click="sendpage(1)">{{ adminLang.NextPage }}</div>
+		</div>
+	</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="../js/lang-zhu.js?v20200407"></script>
+	<script src="../js/lang.js"></script>
+	<script src="../../page/js/app.js?fdf"></script>
+	<script src="js/right.js?ddfffddd"></script>
+</body>
+</html>

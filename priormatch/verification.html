@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>PrioMatch</title>
+		<meta name="keywords" content="PrioMatch">
+		<meta name="description" content="PrioMatch">
+		<!--<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />-->
+		<link rel="stylesheet" href="page/css/main.css?v20200408" />
+		<link rel="stylesheet" href="page/css/index.css?v20200408" />
+		<link rel="stylesheet" href="css/login.css?v20200408" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="verification" v-cloak class="main-box body-bg" :style="{height:ScreenH+'px',}">
+			<header id="header" style="height: 50px;">
+				<div class="main-box main-flex main-aic head" style="background: rgb(255, 255, 255);border-bottom: 1px solid #e8e8e8;">
+					<div class="main-box head_lf" onclick="jumpLoginTo(this,'passlogin.html')">
+						<img src="page/img/public/icon_back.png" class="head_back">
+					</div>
+					<div class="main-box main-f1 main-tac main-ellipsis head_md" style="font-weight: normal; font-size: 16px; color: rgb(51, 51, 51); opacity: 1;">{{loginFont}}</div>
+					<div class="main-box head_rt"></div>
+				</div>
+			</header>
+			<div class="login-content">
+				<div class="main-flex main-aic main-mob edit_li">
+					<div class="login-text">{{ mobfont1 }} <span class="login-mob"> (+{{ countryCode }}){{ mobile }} </span> {{ mobfont2 }}</div>
+				</div>
+				<div class="main-flex main-aic edit_li">	
+					<input ref="pwd" type="text" maxlength="6" v-model="msg"  style="position: absolute;z-index: -1;left:-100%;opacity: 0"/>
+					<ul class="pwd-wrap" @click="focus()">
+					  <li>{{msg1}}</li>
+					  <li>{{msg2}}</li>
+					  <li>{{msg3}}</li>
+					  <li>{{msg4}}</li>
+					  <li>{{msg5}}</li>
+					  <li style="margin-right: 0px;">{{msg6}}</li>
+					</ul>
+				</div>
+				<div class="login-b">
+					<div class="login-ver">
+						<div class="login-send" @click="sendCode()">
+							{{loginSend}}{{sendNumber}}s
+						</div>
+					</div>
+					<div class="login-ver">
+						<div class="login-font" @click="checkPass()">
+							{{loginBotton}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bei">Corpration © 2016-2020 PrioMatch.All Rights Reserved</div>
+		</div>
+		
+		<script src="page/js/jquery-3.1.1.min.js"></script>
+		<script src="page/js/vue.js"></script>
+		<script src="page/js/lang-zhu.js?v20200410"></script>
+		<script src="js/app.js?v20200410"></script>
+		<script src="js/verification.js?v20200410"></script>
+	</body>
+</html>

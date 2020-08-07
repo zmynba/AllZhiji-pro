@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Priormatch">
+	<meta name="description" content="Priormatch">
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/main.css?v=20200611">
+    <script>
+        document.write("<link rel='stylesheet' href='css/index.css?v="+ parseInt((Math.random() + 1) * (Math.pow(10, 8))) +"'><\/link>");
+    </script>
+    <title>Loading</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="index" v-cloak>
+        <!-- 头部 -->
+        <header class="main-relative privil_head">
+            <div class="main-flex main-w10 privil_top">
+                <div class="main-f1 main-relative main-tac" @click="tapTabs(1)">
+                    <p class="main-inline privil_txt" :class="{ privil_active: tabId == 1, privil_active_ru: lang == 'ru' }">{{ interLang.userGrade }}</p>
+                    <p v-if="tabId == 1" class="privil_xian"></p>
+                </div>
+                <div class="main-f1 main-relative main-tac" @click="tapTabs(2)">
+                    <p class="main-inline privil_txt" :class="tabId == 2 && 'privil_active'">{{ interLang.hostGrade }}</p>
+                    <p v-if="tabId == 2" class="privil_xian"></p>
+                </div>
+                <img class="privil_back" @click="tapBack" src="img/icon_back.png" alt="Back">
+            </div>
+        </header>
+
+        <!-- 主体 -->
+		<div class="main-relative main-over grade" :style="{ height: (bodyH - 130) + 'px' }">
+            <!--滑动部分-->
+            <!-- <div class="swiper-container swiper-no-swiping">
+                <div class="swiper-wrapper"> -->
+            <!--等级特权-->
+            <div class="main-w10" v-show="tabId == 1">
+                <!--顶部信息-->
+                <div class="main-relative">
+                    <img class="main-w10 main-vat" src="img/g_bg1.png"/>
+                    <img class="privil_bg" src="img/g_head.png" alt="Head">
+                    <div class="grade_head">
+                        <img class="main-w10 main-hg main-radius" :src="userInfo.avatar && userInfo.avatar != '' ? userInfo.avatar : 'img/default.png'" onerror="this.src='img/default.png'"/>
+                        <div class="main-w10 main-tac grade_lv">
+                            <img class="main-w9" src="img/btn_01.png"/>
+                            <p class="main-w10 main-hg grade_t1">LV{{ gradeExtra.level }}</p>
+                        </div>
+                    </div>
+                    
+                    <!--进度条-->
+                    <div class="main-w10 grade_speed">
+                        <div class="main-relative grade_max">
+                            <p class="grade_progress"></p>
+                            <div class="main-w10 grade_lump">
+                                <div class="main-inline main-relative grade_move">
+                                    <img width="42" src="img/g_01.png"/>
+                                    <p class="main-w10 main-hg main-flex main-aic main-jcc grade_num">{{ gradeExtra.current }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-flex main-aic grade_down" :class="{ main_aic_ru: lang == 'ru' }">
+                            <div class="main-f1 main-flex main-aic">
+                                <img width="13" src="img/g_02.png"/>
+                                <span class="grade_t2">{{ interLang.empiricalValue }}</span>
+                            </div>
+                            <p class="grade_t3" :class="{ grade_t3_ru: lang == 'ru' }">{{ interLang.distanceGrade }}{{ gradeExtra.max - gradeExtra.current }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--权限列表-->
+                <div class="privil_down">
+                    <div class="main-flex main-aic main-jcc grade_content">
+                        <img width="62" src="img/g_04.png"/>
+                        <p class="grade_title">{{ interLang.indexTitle }}</p>
+                        <img width="62" src="img/g_05.png"/>
+                    </div>
+                    
+                    <ul class="grade_list">
+                        <li class="main-flex main-aic main-bg grade_li" v-for="item in gradeLists">
+                            <img width="44" :src="gradeExtra.level >= item.lockGrade ? item.imgUrlActive : item.imgUrl"/>
+                            <p class="main-f1 grade_lock">{{ item.title }}</p>
+                            <p class="grade_t4">{{ item.lock }}</p>
+                        </li>
+                        <li class="main-flex main-aic main-bg grade_li">
+                            <img width="44" src="img/i_last.png"/>
+                            <p class="main-f1 grade_lock">{{ interLang.comingSoon }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!--主播特权-->
+            <div class="main-w10" v-show="tabId == 2">
+                <!--顶部信息-->
+                <div class="main-relative">
+                    <img class="main-w10 main-vat" src="img/g_bg2.png"/>
+                    <img class="privil_bg" src="img/g_head2.png" alt="Head">
+                    <div class="grade_head">
+                        <img class="main-w10 main-hg main-radius" :src="userInfo.avatar && userInfo.avatar != '' ? userInfo.avatar : 'img/default.png'" onerror="this.src='img/default.png'"/>
+                        <div class="main-w10 main-tac grade_lv">
+                            <img class="main-w9" src="img/btn_02.png"/>
+                            <p class="main-w10 main-hg grade_t5">BLV{{ anchorExtra.level }}</p>
+                        </div>
+                    </div>
+                    
+                    <!--进度条-->
+                    <div class="main-w10 grade_speed">
+                        <div class="main-relative grade_maxs">
+                            <p class="grade_progress2"></p>
+                            <div class="main-w10 grade_lump2">
+                                <div class="main-inline main-relative grade_move">
+                                    <img width="42" src="img/g_01.png"/>
+                                    <p class="main-w10 main-hg main-flex main-aic main-jcc grade_nums">{{ anchorExtra.current }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-flex main-aic grade_down" :class="{ main_aic_ru: lang == 'ru' }">
+                            <div class="main-f1 main-flex main-aic">
+                                <img width="13" src="img/g_03.png"/>
+                                <span class="grade_t2">{{ interLang.empiricalValue }}</span>
+                            </div>
+                            <p class="grade_t3" :class="{ grade_t3_ru: lang == 'ru' }">{{ interLang.distanceGrade }}{{ anchorExtra.max - anchorExtra.current }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--权限列表-->
+                <div class="privil_down">
+                    <div class="main-flex main-aic main-jcc grade_content">
+                        <img width="62" src="img/g_04.png"/>
+                        <p class="grade_title">{{ interLang.hostPrivilege }}</p>
+                        <img width="62" src="img/g_05.png"/>
+                    </div>
+                    
+                    <ul class="grade_list">
+                        <li class="main-flex main-aic main-bg grade_li" v-for="item in anchorLists">
+                            <img width="44" :src="anchorExtra.level >= item.lockGrade ? item.imgUrlActive : item.imgUrl"/>
+                            <p class="main-f1 grade_lock">{{ item.title }}</p>
+                            <p class="grade_t4">{{ item.lock }}</p>
+                        </li>
+                        <li class="main-flex main-aic main-bg grade_li">
+                            <img width="44" src="img/i_last.png"/>
+                            <p class="main-f1 grade_lock">{{ interLang.comingSoon }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <!-- </div>
+            </div> -->
+        </div>
+
+        <!--按钮-->
+        <div class="main-w10 main-bg main-tac grade_btn">
+            <p class="main-inline main-w8" @click="tapGradeAdd">{{ interLang.upgradeLevel }}</p>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        if ((navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i))) {
+            document.write("<script src='cordova_bothlive/cordova.js?v20200316'><\/script>");
+        }
+    </script>
+    <script src="js/swiper.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/lang.js?v20200616"></script>
+    <script src="js/app.js?v20200611"></script>
+    <script>
+        document.write("<script src='js/index.js?v="+ parseInt((Math.random() + 1) * (Math.pow(10, 8))) +"'><\/script>");
+    </script>
+</body>
+</html>

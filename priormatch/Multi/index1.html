@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>BothLiveBL</title>
+		<meta name="keywords" content="BothLivekey">
+		<meta name="description" content="BothLivedes">		<script type="text/javascript" src="../page/player/sewise.player.min.js?v=de3ee3"></script>
+		<link rel="stylesheet" href="../page/css/main.css?v20190827" />
+		<link rel="stylesheet" href="css/index.css?v20190827" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}			li.m-li {
+				float: left;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="multiHome" v-cloak class="main-box">			<div class="m-chat">
+				<ul class="m-ul">
+					<li v-for="item in multiList" class="m-li">
+						<!----<iframe :src="'chatlive.html?hid='+item.uid" width="250" height="445" style="width: 250px;height: 445px;"></iframe>
+						--->
+						<div :id="item.uid" class="m-div" style="width: 250px;height: 445px;"></div>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../page/js/jquery-3.1.1.min.js"></script>
+		<script src="../page/js/vue.js"></script>		<script src="../page/js/lang-zhu.js?v20190412"></script>
+		
+		<script src="js/multiHome.js?v=fdffsre3"></script>
+	</body>
+</html>

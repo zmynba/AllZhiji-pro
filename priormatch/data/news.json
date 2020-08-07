@@ -1,0 +1,49 @@
+{
+	"newsList" : [
+		{
+			"id": "1",
+			"name": "俄罗斯主播哆哆",
+			"imgUrl": "http://alivod.xxshow.com/images/poster/100044230/20180817213138.png",
+			"content": "hello，你好",
+			"time": "14:26",
+			"num": "156",
+			"isLine": true
+		},
+		{
+			"id": "2",
+			"name": "Kim Thoa",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100091508/2018098184704.png",
+			"content": "你好，在吗",
+			"time": "12:26",
+			"num": "0",
+			"isLine": true
+		},
+		{
+			"id": "3",
+			"name": "Phụng Miu",
+			"imgUrl": "http://alivod.xxshow.com/images/poster/100104381/2018102095618.png",
+			"content": "刘德华是大家最喜爱的歌手，随着年龄的增加，能看到刘德华演唱会的次数越来越少，粉丝们心心念念的演唱会终于在开始了",
+			"time": "09:26",
+			"num": "1",
+			"isLine": "true"
+		},
+		{
+			"id": "4",
+			"name": "Thanh Trúc",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100091622/2018095095537.png",
+			"content": "hello，你好",
+			"time": "2018-10-10 16:26",
+			"num": "255",
+			"isLine": false
+		},
+		{
+			"id": "5",
+			"name": "Ngọc 247",
+			"imgUrl": "http://alivod.xxshow.com/images/poster/100102922/20180915210100.png",
+			"content": "在啊",
+			"time": "2018-10-10 19:26",
+			"num": "10",
+			"isLine": false
+		}
+	]
+}

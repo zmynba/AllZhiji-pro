@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>PrioMatch</title>
+	<meta name="keywords" content="PrioMatch">
+	<meta name="description" content="PrioMatch">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../../page/css/main.css?v20200609" />
+	<link rel="stylesheet" href="../../page/css/index.css?v20200609" />
+	<link rel="stylesheet" href="css/pay.css?v20200609" />
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    
+<style>
+	[v-cloak]{
+		display: none;
+	}
+   
+</style>
+</head>
+<body>
+    <div class="container" v-cloak  id="paypage">
+        <div class="top-part">
+            <img src="img/logo1.png" alt="">
+			<div v-if="userLogin" class="top-right">
+			   <el-avatar :src="userInfo.avatar"></el-avatar>
+			   <span style="line-height: 40px;float: left;margin-right: 5px;">{{ userInfo.nick }}</span>
+			</div>
+			<div v-else>
+				<div class="top-right" @click="SwitchAccount()">
+				  <el-button type="info" plain>{{ interLang.loginBotton }}</el-button>
+				</div>
+				<div class="top-right" @click="SwitchRegister()">
+				  <el-button type="info" plain>{{ interLang.zhuceanniu }}</el-button>
+				</div>
+			</div>
+			
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-left">
+                <ul> 
+					<li @click="selecttab(3)" v-bind:class="rightindex==3?'orange':''">{{ interLang.rechorge }}</li>
+                    <li>
+                        <div class="f-title"  @click="selecttab(1)">{{ interLang.openMember }}</div>
+                        <div class="f-word" class="" v-show="showmore">
+                            <div @click="selecttab(1)" v-bind:class="rightindex==1?'orange':''">VIP</div>
+                            <div @click="selecttab(2)" v-bind:class="rightindex==2?'orange':''">SVIP</div>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </div>
+
+            <div class="tab-right">
+                <div class="tab-right-box" v-show="rightindex==1||rightindex==2">
+					<div class="type-title">Our services：</div>
+					<div class="charge-type pay-font">
+						<p><span>Multi language translation：</span>provide the following language translation: English, Russian, Korean, Vietnamese, Arabic;</p>
+						<p><span>Outsource Design：</span>APP Design（iOS、Android）、PC Software Design（ERP、CRM）、website Design、WAP Design、、Weixin API Design、</p>
+						<p><span>Consulting service：</span>Information planning、System function design、Data resources / Master Data Planning、Micro service transformation、Digital operation analysis system、Big data application scenario planning、Business middle office and data middle office、Digital transformation scenario solution</p>
+					</div>
+					<div v-show="userLogin" class="type-title">{{ interLang.accountInfor }}:</div>
+					<div v-show="userLogin" class="charge-type">
+						 <div class="user-Info">
+							 <div class="user-Info-left">
+								 <el-image  style="width: 150px; height: 150px" :src="userInfo.avatar" ></el-image>
+							 </div>
+							 <div class="user-Info-left">
+								 <div class="main-box main-flex main-f1">
+									 <p class="main-box home_info_name">{{ userInfo.nick }}</p>
+									 
+								  </div>
+								  <div class="main-box main-flex main-f1">
+									<p class="user-info-id">{{ userInfo.uid }}</p>
+								  </div>
+								 <!--性别等级-->
+									<div class="main-flex home_info_two">
+										<!--男-->
+										<div v-if="userInfo.gender==1" class="main-box home_info_boy">
+											<img src="../../page/img/home/icon_boy.png"/>
+											<span class="main-inline home_info_gender">{{ userInfo.age }}</span>
+										</div>
+										<!--女-->
+										<div v-else class="main-box home_info_boy">
+											<img src="../../page/img/home/icon_girl.png"/>
+											<span class="main-inline home_info_gender home_info_active">{{ userInfo.age }}</span>
+										</div>
+										<!--等级-->
+										<div class="main-box home_info_girl">
+											
+											<span v-if="userInfo.level==0" class="main-inline home_info_level0" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else-if="0<userInfo.level<16" class="main-inline home_info_level1" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else-if="15<userInfo.level<31" class="main-inline home_info_level2" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else-if="30<userInfo.level<46" class="main-inline home_info_level3" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else-if="45<userInfo.level<61" class="main-inline home_info_level4" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else-if="60<userInfo.level<76" class="main-inline home_info_level5" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+											<span v-else class="main-inline home_info_level6" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+										</div>
+										<div class="main-box home_info_girl">
+											
+											<span v-if="userInfo.roomlevel==0" class="main-inline home_info_roomlevel0" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else-if="0 < userInfo.roomlevel<16" class="main-inline home_info_roomlevel1" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else-if="15<userInfo.roomlevel<31" class="main-inline home_info_roomlevel2" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else-if="30<userInfo.roomlevel<46" class="main-inline home_info_roomlevel3" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else-if="45<userInfo.roomlevel<61" class="main-inline home_info_roomlevel4" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else-if="60<userInfo.roomlevel<76" class="main-inline home_info_roomlevel5" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+											<span v-else class="main-inline home_info_roomlevel6" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+										</div>
+									</div>
+									<div class="main-flex home_info_two">
+										<div class="main-box main-flex main-aic home_info_rt">
+											<img src="../../page/img/home/icon_location.png"/>
+											<span>{{ userInfo.country }}</span>
+										</div>
+									</div>
+							 </div>
+							 <div class="user-banner" style=" line-height: normal;">
+								 <div v-show="userInfo.vip !== 0 && userInfo.svip == 0" class="main-box home_vip_svip home_vip_svip_width">
+										<img src="../../page/img/vip/VIPbig@3x.png "/>
+								 </div>
+								 <div v-show="userInfo.svip !== 0" class="main-box home_vip_svip home_vip_svip_width">
+										<img src="../../page/img/vip/svipbig@3x.png "/>
+								 </div>
+							 </div>
+						 </div>
+					</div>
+                    <div class="type-title">{{ interLang.selectRecharge }}:</div>
+                    <div class="charge-type">
+                        <span v-bind:class="typeindex==1?'active':''" @click="settype(1)"><img src="img/r_08.png" />微信</span>
+                        <span v-bind:class="typeindex==2?'active':''" @click="settype(2)"><img src="img/r_09.png" />支付宝</span>
+                        <span v-bind:class="typeindex==3?'active':''" @click="settype(3)"><img src="img/r_10.png" />PayPal</span>
+                        <span v-bind:class="typeindex==4?'active':''" @click="settype(4)"><img src="img/r_12.png" />VTC钱包</span>
+                        <span v-bind:class="typeindex==5?'active':''" @click="settype(5)"><img src="img/paytm.png" />Indian Wallets</span>
+                    </div>
+                    <div class="member-title">{{ interLang.selecmoney }}：</div>
+                    <div class="month-type" v-show="rightindex==1">
+                        <div  v-for="item in vipList" class="month-one"  @click="rechargevip(item.id)"  v-bind:class="monthindex==item.id?'active':''" >
+                            <span>{{ item.quantity }} {{interLang.months }} </span>
+                            <span>VIP</span>
+                            <span v-show="typeindex==1||typeindex==2">{{ item.CNY }}</span>
+							<span v-show="typeindex==3||typeindex==4||typeindex==5">{{ item.USD }}</span>
+                        </div>	
+                    </div>
+					 <div class="month-type" v-show="rightindex==2">
+						 <div  v-for="item in svipList" class="month-one"  @click="rechargevip(item.id)"  v-bind:class="monthindex==item.id?'active':''" >
+						     <span>{{ item.quantity }} {{interLang.months }} </span>
+						     <span>SVIP</span>
+						     <span v-show="typeindex==1||typeindex==2">{{ item.CNY }}</span>
+						 	<span v-show="typeindex==3||typeindex==4||typeindex==5">{{ item.USD }}</span>
+						 </div>
+					</div>	 
+                    <div class="charge-btn" @click="vipSend()">{{rightindex==1?'VIP renewal':'SVIP renewal'}}</div>
+					
+                   
+
+                </div>
+                <div class="tab-right-box" v-show="rightindex==3">
+					<div class="type-title">Our services：</div>
+					<div class="charge-type pay-font">
+						<p><span>Multi language translation：</span>provide the following language translation: English, Russian, Korean, Vietnamese, Arabic;</p>
+						<p><span>Outsource Design：</span>APP Design（iOS、Android）、PC Software Design（ERP、CRM）、website Design、WAP Design、、Weixin API Design、</p>
+						<p><span>Consulting service：</span>Information planning、System function design、Data resources / Master Data Planning、Micro service transformation、Digital operation analysis system、Big data application scenario planning、Business middle office and data middle office、Digital transformation scenario solution</p>
+					</div>
+					 <div v-show="userLogin" class="type-title">{{ interLang.accountInfor }}:</div>
+					 <div v-show="userLogin" class="charge-type">
+						 <div class="user-Info">
+							 <div class="user-Info-left">
+								 <el-image  style="width: 150px; height: 150px" :src="userInfo.avatar" ></el-image>
+							 </div>
+							 <div class="user-Info-left">
+								 <div class="main-box main-flex main-f1">
+									 <p class="main-box home_info_name">{{ userInfo.nick }}</p>
+									 <div v-show="userInfo.vip !== 0 && userInfo.svip == 0" class="main-box home_vip_svip">
+										<img src="../../page/img/vip/vipsmall@2x.png "/>
+									 </div>
+									 <div v-show="userInfo.svip !== 0" class="main-box home_vip_svip">
+										<img src="../../page/img/vip/svipsmall@2x.png "/>
+									 </div>
+								  </div>
+								  <div class="main-box main-flex main-f1">
+									<p class="user-info-id">{{ userInfo.uid }}</p>
+								  </div>
+								 <!--性别等级-->
+								 	<div class="main-flex home_info_two">
+								 		<!--男-->
+								 		<div v-if="userInfo.gender==1" class="main-box home_info_boy">
+								 			<img src="../../page/img/home/icon_boy.png"/>
+								 			<span class="main-inline home_info_gender">{{ userInfo.age }}</span>
+								 		</div>
+								 		<!--女-->
+								 		<div v-else class="main-box home_info_boy">
+								 			<img src="../../page/img/home/icon_girl.png"/>
+								 			<span class="main-inline home_info_gender home_info_active">{{ userInfo.age }}</span>
+								 		</div>
+								 		<!--等级-->
+								 		<div class="main-box home_info_girl">
+								 			
+								 			<span v-if="userInfo.level==0" class="main-inline home_info_level0" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else-if="0<userInfo.level<16" class="main-inline home_info_level1" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else-if="15<userInfo.level<31" class="main-inline home_info_level2" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else-if="30<userInfo.level<46" class="main-inline home_info_level3" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else-if="45<userInfo.level<61" class="main-inline home_info_level4" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else-if="60<userInfo.level<76" class="main-inline home_info_level5" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 			<span v-else class="main-inline home_info_level6" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.level }}</span>
+								 		</div>
+								 		<div class="main-box home_info_girl">
+								 			
+								 			<span v-if="userInfo.roomlevel==0" class="main-inline home_info_roomlevel0" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else-if="0 < userInfo.roomlevel<16" class="main-inline home_info_roomlevel1" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else-if="15<userInfo.roomlevel<31" class="main-inline home_info_roomlevel2" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else-if="30<userInfo.roomlevel<46" class="main-inline home_info_roomlevel3" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else-if="45<userInfo.roomlevel<61" class="main-inline home_info_roomlevel4" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else-if="60<userInfo.roomlevel<76" class="main-inline home_info_roomlevel5" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 			<span v-else class="main-inline home_info_roomlevel6" style="padding: 7px 6px 9px 15px;font-size: 12px;color: #fff;">{{ userInfo.roomlevel }}</span>
+								 		</div>
+								 	</div>
+									<div class="main-flex home_info_two">
+										<div class="main-box main-flex main-aic home_info_rt">
+											<img src="../../page/img/home/icon_location.png"/>
+											<span>{{ userInfo.country }}</span>
+										</div>
+									</div>
+							 </div>
+							 <div class="user-banner"></div>
+						 </div>
+					 </div>
+                    <div class="type-title">{{ interLang.selectRecharge }}:</div>
+                    <div class="charge-type">
+                        <span v-bind:class="typeindex==1?'active':''" @click="settype(1)"><img src="img/r_08.png" />微信</span>
+                        <span v-bind:class="typeindex==2?'active':''" @click="settype(2)"><img src="img/r_09.png" />支付宝</span>
+                        <span v-bind:class="typeindex==3?'active':''" @click="settype(3)"><img src="img/r_10.png" />PayPal</span>
+                        <span v-bind:class="typeindex==4?'active':''" @click="settype(4)"><img src="img/r_12.png" />VTC钱包</span>
+                        <span v-bind:class="typeindex==5?'active':''" @click="settype(5)"><img src="img/paytm.png" />Indian Wallets</span>
+                    </div>
+                    <div class="num-title">{{ interLang.selecmoney }}:</div>
+                    <div class="type-num">
+                        <div class="zh-num" >
+                            <div v-for="item in priceList"  @click="rechargeSend(item.id)"  v-bind:class="numindex==item.id?'active':''" class="num-one">
+                                
+                                <span v-show="typeindex==1||typeindex==2">{{ item.CNY }}</span>
+								<span v-show="typeindex==3||typeindex==4||typeindex==5">{{ item.USD }}</span>
+                            </div>
+                        </div>
+					</div>
+                    <div @click="Send()"  class="charge-btn">{{ interLang.chatcon }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paypage-footer">
+                ICP证:豫ICP备18006054号-2 豫公网安备 41010502004478号<img src="img/gov.png" /> 豫网文【2018】11679-198号 全国文化市场举报平台 Copyright © 1998 - 2020 BothLive. All Rights Reserved
+        </div>
+    </div>
+	<script src="../../page/js/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="js/lang-zhu.js?20200713"></script>
+	<script src="js/app.js?20200713"></script>
+	<script src="js/paypage.js?2020071d3"></script>
+
+</body>
+</html>

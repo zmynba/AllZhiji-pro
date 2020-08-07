@@ -1,0 +1,294 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BothLiveBL</title>
+<meta name="keywords" content="BothLivekey">
+<meta name="description" content="BothLivedes">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+<link rel="stylesheet" href="../css/main.css?v20200407" />
+<link rel="stylesheet" href="../css/index.css?v20200407" />
+<link rel="stylesheet" href="../css/css.css?v20200407" />
+<style type=text/css>
+	[v-cloak]{
+		display: none;
+	}
+html{ SCROLLBAR-FACE-COLOR: #538ec6; SCROLLBAR-HIGHLIGHT-COLOR: #dce5f0; SCROLLBAR-SHADOW-COLOR: #2c6daa; SCROLLBAR-3DLIGHT-COLOR: #dce5f0; SCROLLBAR-ARROW-COLOR: #2c6daa;  SCROLLBAR-TRACK-COLOR: #dce5f0;  SCROLLBAR-DARKSHADOW-COLOR: #dce5f0; overflow-x:hidden;}
+body{overflow-x:hidden; margin: 0;background: #dcdcdc;}
+.title-img {
+    width: 100%;
+    background: #ef3535;
+}
+.chat-info {
+    float: right;
+}
+.chat-refresh{
+    float: left;
+    margin-right: 15px;
+    padding: 12px 0;
+}
+.chat-name {
+    float: left;
+    line-height: 40px;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 15px;
+}
+img.user-in-img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+img.user-exit-img {
+    width: 20px;
+    margin: 10px 0;
+}
+.chat-contents {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+div#mood_btn_enter {
+    border: 0;
+    background: none;
+}
+img.video-c {
+    width: 16px;
+    margin-right: 3px;
+}
+img.main-vat.chat_send_icon {
+    width: 50px;
+}
+.list {
+	overflow-y: scroll;
+    margin: 0 15px;
+}
+.letter-left {
+    float: left;
+	margin-right: 20px;
+}
+.letter-right{
+	float: right;
+	margin-right: 20px;
+}
+.mood_letter_outer {
+    overflow: hidden;
+    margin: 10px;
+}
+img.letter-avatar {
+    width: 85px;
+    height: 85px;
+}
+.letter-font{
+	height: 20px;
+	width: 85px;
+	line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+    background: #F0F0F0;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap
+}
+span.el-checkbox__input {
+    position: absolute;
+    right: 0;
+}
+.letter-span span.el-checkbox__input {
+    position: inherit;
+}
+/*整体部分*/ 
+::-webkit-scrollbar
+{
+	width: 5px;
+	height: 10px;
+}
+/*滑动轨道*/ 
+::-webkit-scrollbar-track
+{
+	border-radius: 0px;
+	background: none;
+}
+/*滑块*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(255,255,255,.75)
+}
+/*滑块效果*/ 
+::-webkit-scrollbar-thumb:hover
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(85, 85, 85, 0.4);
+}
+.chat-send-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.81);
+    z-index: 200;
+}
+.chat-sed-c {
+    position: absolute;
+    z-index: 201;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    font-size: 80px;
+    width: 500px;
+    text-align: center;
+    color: red;
+    margin-left: -250px;
+    height: 140px;
+    line-height: 140px;
+    margin-top: -100px;
+}
+.online_dynam_img {
+    max-width: 600px;
+}
+span.mood-left img {
+    width: 25px;
+    margin: 5px;
+	cursor: pointer;
+}
+div#mood_bar {
+    position: relative;
+}
+</style>
+</head>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
+	<div id="letter" v-cloak class="main-box">
+		<div class="title-img" style="height: 40px;">
+			<div class="chat-name"></div>
+			<div class="chat-name"><img :src="Info.avatar" class="user-in-img" onerror="this.src='../../page/img/public/default.png'"></div>
+			<div class="chat-name">{{ adminLang.InfoNick }}：{{ Info.nick }}</div>
+			<div class="chat-name">ID:{{ Info.uid }}</div>
+			<div class="chat-info">
+				<div class="chat-refresh"><i class="el-icon-refresh"></i></div> 
+				<div class="chat-name" @click="signExit()"><img src="../img/sign_out_exit.png" class="user-exit-img"></div>
+			</div>
+		</div>
+		<div class="chat-contents">
+			
+			<div class="letter-title">{{ adminLang.PrivateMessaging }}</div>
+			<div class="mood_letter_outer">
+				<div class="letter-left" >
+					<div class="demonstration" style="float: left; line-height: 40px;color: #8492a6;font-size: 14px;">{{ adminLang.letterContry }}：</div>
+					<template>
+					  <el-select v-model="code" filterable :placeholder="adminLang.label1">
+					    <el-option
+					      v-for="(item, index) in countryList"
+					      :key="index"
+					      :label="item.name"
+					      :value="item.code">
+					    </el-option>
+					  </el-select>
+					</template>
+				</div>
+				<div class="letter-left" >
+					<div class="demonstration" style="float: left; line-height: 40px;color: #8492a6;font-size: 14px;">{{ adminLang.letterGender }}：</div>
+					<div style="float: left; line-height: 40px;">
+						<template>
+						  <el-select v-model="genderValue" :placeholder="adminLang.label1">
+						    <el-option
+						      v-for="item in genderList"
+						      :key="item.value"
+						      :label="item.label"
+						      :value="item.value">
+						    </el-option>
+						  </el-select>
+						</template>
+					</div>
+				</div>
+				<div class="letter-left">
+					<div class="demonstration" style="float: left; line-height: 40px;color: #8492a6;font-size: 14px;">{{ adminLang.letterinfo }}：</div>
+					<div style="float: left; width: 250px;">
+						<el-input
+						  placeholder="ID"
+						  v-model="userid"
+						  clearable>
+						</el-input>
+					</div>
+				</div>
+				<div class="letter-right letter-search">
+					<el-button type="primary" icon="el-icon-search" @click="SelectMag(1)">{{ adminLang.letterSelect }}</el-button>
+				</div>
+			</div>
+		</div>
+		<div class="chat-contents">
+			<div class="mood">
+				<div class="mood_caption">
+					{{ adminLang.lSelect1 }}{{ listNum }}{{adminLang.lSelect2}}<span style="    color: red;font-size: 12px;">( {{adminLang.lSelect3}}：{{  Timelist }} {{ adminLang.lSTime }})</span>
+					<div class="letter-right letter-span">
+						<el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">{{adminLang.selectAll}}</el-checkbox>
+					</div>
+				</div>
+				<div v-if="letterList.length!==0" class="list" :style="'height:' + lheight + 'px'">
+					<div class="online_t2">
+						<template>
+						  <div style="margin: 15px 0;"></div>
+						  <el-checkbox-group  v-loading="loading" v-model="checkedCities" @change="handleCheckedCitiesChange">
+							<el-checkbox v-for="item in letterList" :label="item.uid" :key="item.uid">
+								<img :src="item.avatar" class="letter-avatar" onerror="this.src='../../page/img/public/default.png'"/>
+								<p class="letter-font">{{ item.nick }}</p>
+								<p class="letter-font" style="color: rgb(132, 146, 166);font-size: 12px;">ID:{{ item.uid }}</p>
+								
+							</el-checkbox>
+						  </el-checkbox-group>
+						</template>
+					</div>
+				</div>
+				<div v-else class="main-box main-tac list_none main-box-img list" :style="'height:' + lheight + 'px'">
+					<img src="../img/letter.png">
+				</div>
+			</div>
+		</div>
+		<div class="chat-contents">
+			<div class="chat-botton">
+				<div class="mood">
+					<div class="mood_caption"><em class="mood_bq"></em><em class="mood_img"></em></div>
+					<div class="mood_textarea_outer">
+						<textarea id="applyCertNum" v-model="chatContent"  name="txt" class="mood_textarea" id="mood_textarea" :placeholder="adminLang.dyplaceholder"></textarea>
+					</div>
+					<div id="mood_bar" class="mood_bar">
+						<span class="mood-left emotion" @click="emoteOpen()"><img src="../img/b_04.png" ></span>
+						<div v-show="emoteShow" class="emote-bg" style="bottom: 35px;">
+							<div class="emote-li" v-for="(value, key, index) in emoteList">
+								<img @click="emoteSend(key)" :src="'drawable/'+value"  class="emote-img"/>
+							</div>
+						</div>
+						<span class="mood-left upimg">
+							<input type='file' id='PhotoF'>
+							<img src="../img/b_01.png" >
+							</span>
+						<div id="mood_btn_enter" class="mood_enter"><img class="main-vat chat_send_icon" @click="tapSend()"  src="../../page/img/chat/c_09.png"/></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div v-show="sendbg" class="chat-send-bg">
+			<div class="chat-sed-c">
+				{{adminLang.LSSending}}
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>	
+	<script src="../js/lang-zhu.js?v20200407"></script>
+	<script src="../js/lang.js?v20200407"></script>
+	<script src="js/emote.js?v20200407"></script>
+	<script src="../js/app.js?v20200407"></script>
+	<script src="js/letter.js?v20200407c"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BothLiveBL</title>
+<meta name="keywords" content="BothLivekey">
+<meta name="description" content="BothLivedes">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+<link rel="stylesheet" href="../css/main.css?v20181229" />
+<link rel="stylesheet" href="../css/index.css?v20181229a" />
+<link rel="stylesheet" href="../css/css.css?v20181229a" />
+<style type=text/css>
+	[v-cloak]{
+		display: none;
+	}
+html{ SCROLLBAR-FACE-COLOR: #538ec6; SCROLLBAR-HIGHLIGHT-COLOR: #dce5f0; SCROLLBAR-SHADOW-COLOR: #2c6daa; SCROLLBAR-3DLIGHT-COLOR: #dce5f0; SCROLLBAR-ARROW-COLOR: #2c6daa;  SCROLLBAR-TRACK-COLOR: #dce5f0;  SCROLLBAR-DARKSHADOW-COLOR: #dce5f0; overflow-x:hidden;}
+body{overflow-x:hidden; margin: 0;background: #dcdcdc;}
+.title-img {
+    width: 100%;
+    background: #ef3535;
+}
+.user-info {
+    background: #FBE9D2;
+	padding: 0 5px;
+	overflow: hidden;
+}
+img.user-ioon-img {
+    width: 50px;
+    border-radius: 50%;
+}
+.user-content {
+    float: left;
+    margin: 3px 0 5px 10px;
+    color: #333;
+}
+.user-icon {
+    float: left;
+}
+.user-uid {
+    font-size: 14px;
+    color: #838383;
+}
+.user-nick {
+    font-size: 18px;
+}
+iframe#loginPage {
+    display: none;
+}
+.user-chat-list {
+    overflow: auto;
+}
+::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+background-color:#f8f8f8;
+}
+::-webkit-scrollbar {//滚动条的宽度
+width:3px;
+height:5px;
+}
+::-webkit-scrollbar-thumb {//滚动条的设置
+background-color:#dddddd;
+background-clip:padding-box;
+min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+background-color:#bbb;
+}
+.chat-info {
+    float: right;
+}
+.chat-refresh{
+    float: left;
+    margin-right: 15px;
+    padding: 12px 0;
+}
+.chat-name {
+    float: left;
+    line-height: 40px;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 15px;
+}
+img.user-in-img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.chat-contents {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+.chat-img {
+    float: left;
+    margin: 10px 20px 10px 0;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid #ef3535;
+    width: 200px;
+    height: 200px;
+}
+.chat-img {
+    float: left;
+    margin: 10px 20px 10px 0;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid #ef3535;
+    width: 200px;
+    height: 200px;
+}
+.chat-content {
+    float: left;
+    margin: 10px;
+}
+.chat-font.chat-i {
+    font-size: 20px;
+    color: #333;
+}
+.chat-i span {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+.chat-id{
+	font-size: 14px;
+	color: #8C8C8C;
+}
+.chat-font {
+    margin: 10px 0;
+}
+.chat_div {
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+	overflow-y: auto;
+}
+img.main-vat.chat_send_icon {
+    width: 50px;
+}
+.chat-textarea{
+	    width: 85%;
+	    height: 70px;
+	    border: 1px solid rgb(212, 207, 207);
+	    margin: 10px 0px;
+	    padding: 3px 5px;
+}
+/*整体部分*/ 
+::-webkit-scrollbar
+{
+	width: 5px;
+	height: 10px;
+}
+/*滑动轨道*/ 
+::-webkit-scrollbar-track
+{
+	border-radius: 0px;
+	background: none;
+}
+/*滑块*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(255,255,255,.75)
+}
+/*滑块效果*/ 
+::-webkit-scrollbar-thumb:hover
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(85, 85, 85, 0.4);
+}
+img.user-exit-img {
+    width: 20px;
+    margin: 10px 0;
+}
+div#mood_btn_enter {
+    border: 0;
+    background: none;
+}
+img.video-c {
+    width: 16px;
+    margin-right: 3px;
+}
+span.mood-left img {
+    width: 25px;
+    margin: 5px;
+	cursor: pointer;
+}
+div#mood_bar {
+    position: relative;
+}
+</style>
+</head>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
+	<div id="yichat" v-cloak class="main-box">
+		<div class="title-img" style="height: 40px;">
+			<div class="chat-name"></div>
+			<div class="chat-name"><img :src="Info.avatar" class="user-in-img" onerror="this.src='../img/default.png'"></div>
+			<div class="chat-name">{{ adminLang.InfoNick }}：{{ Info.nick }}</div>
+			<div class="chat-name">ID:{{ Info.uid }}</div>
+			<div class="chat-info">
+				<div class="chat-refresh" ><i class="el-icon-refresh"></i></div> 
+				<div class="chat-name" @click="signExit()"><img src="../img/sign_out_exit.png" class="user-exit-img"></div>
+			</div>
+		</div>
+		<div  class="user-chat" :style="'height:' + height + 'px'">
+			<div class="chat-contents">
+				<div class="chat_div" :style="'height:' + cheight + 'px'"></div>
+			</div>
+			<div class="chat-contents">
+				<div class="chat-botton">
+					<div class="mood">
+						<div class="mood_caption"><em class="mood_bq"></em><em class="mood_img"></em></div>
+						<div class="mood_textarea_outer">
+							<textarea id="applyCertNum" v-model="chatContent"  name="txt" class="mood_textarea" id="mood_textarea" :placeholder="adminLang.dyplaceholder"></textarea>
+						</div>
+						<div id="mood_bar" class="mood_bar">
+							<span class="mood-left emotion" @click="emoteOpen()"><img src="../img/b_04.png" ></span>
+							<div v-show="emoteShow" class="emote-bg" style="bottom: 35px;">
+								<div class="emote-li" v-for="(value, key, index) in emoteList">
+									<img @click="emoteSend(key)" :src="'drawable/'+value"  class="emote-img"/>
+								</div>
+							</div>
+							<span class="mood-left upimg">
+								<input type='file' id='PhotoF'>
+								<img src="../img/b_01.png" >
+							</span>
+							<div id="mood_btn_enter" class="mood_enter"><img class="main-vat chat_send_icon" @click="tapSendMsg()"  src="../../page/img/chat/c_09.png"/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>	
+	<script src="../js/lang-zhu.js?v20200407"></script>
+	<script src="../js/lang.js"></script>
+	<script src="js/emote.js?v20200407"></script>
+	<script src="../js/app.js?v20200407"></script>	
+	<script src="js/chat.js?v20200407n"></script>
+	
+</body>
+</html>

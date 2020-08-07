@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>收入</title>
+		<meta name="keywords" content="priormatch">
+		<meta name="description" content="priormatch">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="css/main.css?V20191122" />
+		<link rel="stylesheet" href="../../css/index.css?V20191122" />
+		<link rel="stylesheet" href="css/income.css?sswddew" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="background:#fff;">
+		<div id="income" v-cloak class="main-box">
+			<!--头部-->
+			<div class="in-div">
+				<div class="in-bg">
+					<img src="img/incomebg@2x.png" class="in-bg-img">
+				</div>
+				<div class="in-content">
+					<div class="in-con-yue">
+						<span>{{ month }}/{{ year }}</span>
+						<img src="img/Checkin@2x.png" class="in-y-img">
+					</div>
+					<div class="in-con-font">{{ monthFont }}</div>
+					<div class="in-cont-n">
+						<span>{{ incomeNum }}</span>
+						<img src="img/diamond@2x.png" class="in-con-img">
+					</div>
+				</div>
+			</div>
+			<div class="in-list">
+				<div class="in-listc">
+					<div class="in-list-div">
+						<div class="in-list-lift"><img src="img/income_2.png" class="in-Circle-img"></div>
+						<div class="in-list-lift in-font">{{ chatFont }}</div>
+						<div class="in-list-right in-font2">{{ chatNum }}</div>
+					</div>
+					<div class=" in-list-botton"></div>
+					<div class="in-list-div">
+						<div class="in-list-lift"><img src="img/income_4.png" class="in-Circle-img"></div>
+						<div class="in-list-lift in-font">{{ homeFont }}</div>
+						<div class="in-list-right in-font3">{{ homeNum }}</div>
+					</div>
+					<div class=" in-list-botton"></div>
+					<div class="in-list-div">
+						<div class="in-list-lift"><img src="img/income_1.png" class="in-Circle-img"></div>
+						<div class="in-list-lift in-font">{{ secretFont }}</div>
+						<div class="in-list-right in-font4">{{ secretNum }}</div>
+					</div>
+					<div class=" in-list-botton"></div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="../../js/lang-zhu.js?V2020415"></script>
+		<script src="../../js/app.js?V2020415"></script>
+		<script src="js/income.js?V2020415s"></script>
+	</body>
+</html>

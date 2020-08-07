@@ -1,0 +1,278 @@
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>RedEagles</title>
+		<meta name="Keywords" content="RedEagles">
+		<meta name="description" content="RedEagles">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+		<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" href="css/main.css?v20190308ag" />
+		<link rel="stylesheet" href="css/chatLive.css?v=445" type="text/css" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chatLive" v-cloak>
+			<div v-if="liveStust==0" class="chatLive_video">
+				<img src="img/buffer.gif" class="chat_buffer">
+				<img :src="chatLiveSrc" onerror="this.src='img/bg45.png'" class="chatLive_img" :style="'height:' + chath + 'px;margin-left: -' + (chatw/2) + 'px;'">
+			</div>
+			<div v-else-if="liveStust==1" class="chatLive_video">
+				<img src="img/live.png" class="chat_kai">
+				<img :src="chatLiveSrc" onerror="this.src='img/112.png'" class="" :style="'height:' + chath + 'px;margin-left: -' + (chatw/2) + 'px;'">
+			</div>
+			<div v-else class="chatLive_video">
+			</div>
+			<div class="chatLive_top">
+				<div class="chatLive_top_div">
+					<div class="chatLive_top_Left">
+						<div class="chatLive_bg" style="margin-top: 5px;">
+							<img :src="chatLiveSrc" class="chatLive_src"  onerror="this.src='img/morentutouxiang.png'">
+							<div class="chatLive_contents">
+								<div class="chatLive_content1">
+									{{ username }}
+								</div>
+								<div class="chatLive_content2">
+									<img src="img/online2.png">
+									{{ onlineUsers }}
+								</div>
+							</div>
+							<img src="img/follow_anchor.png" class="chatLive_Follow">
+						</div>
+					</div>
+					<div class="chatLive_top_right">
+						<div class="chatLive_user_list">
+							<div v-for="(item,key) in chatUserList" class="chatList">
+								<div class="vister_bg visitor_bg1" v-if="key==0">
+									<img :src="item.profileimageurl" onerror="this.src='img/bg45.png'" class="chatLive_list" >
+								</div>
+								<div class="vister_bg visitor_bg2" v-else-if="key==1">
+									<img :src="item.profileimageurl" onerror="this.src='img/bg45.png'" class="chatLive_list" >
+								</div>
+								<div class="vister_bg visitor_bg3" v-else-if="key==2">
+									<img :src="item.profileimageurl" onerror="this.src='img/bg45.png'" class="chatLive_list" >
+								</div>
+								<div class="vister_bg" v-else>
+									<img :src="item.profileimageurl" onerror="this.src='img/bg45.png'" class="chatLive_list" >
+								</div>
+							</div>
+						</div>
+						<img src="img/chatclase.png" class="chatLive_close">
+					</div>
+				</div>
+				<div class="chatLive_top_div">
+					<div class="chatLive_top_Left">
+						<div class="chatLive_bg chat_right_css">
+							<img src="img/gold.png" class="chat_money_img">
+							<span>{{ chatUserMoney }}</span>
+							<img src="img/jiantou.png" class="chat_jiantou">
+						</div>
+					</div>
+					<div class="chatLive_top_right">
+						<div class="chatLive_bg chat_right_css">ID:{{ chatUserId }}</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			<div class="chatLive_div">
+				<div class="chatLive_list">
+					<div class="chatLive_pic">{{ chatLiveTitle }}【{{channelTopic}}】</div>
+				</div>
+				<div class="chatLive_list">
+					<div class="chatLive_Notice" v-html="chatLivenotice"></div>
+				</div>
+				
+				<div class="chatLive_list" v-for="item in liveChatList">
+					
+					<div class="chatLive_Notice chatLive_color" :class="{chatLive_colorvip: item.vip == true,chatLive_colorsvip: item.svip == true }">
+						
+						<div v-if="item.manager == true">
+							<span :class="{ fans_u1: item.level < 20, fans_u2: item.level > 19 && item.level < 30, fans_u3: item.level > 29 && item.level < 40, fans_u4: item.level > 39 && item.level < 50, fans_u5: item.level > 49 && item.level < 60, fans_u6: item.level > 59 }">{{item.level}}</span>
+							<span :class="{chatLive_fontvip: item.vip == true,chatLive_fontsvip: item.svip == true }">{{item.username}}</span>
+							<img v-show="item.vip == true" src="img/chatvip1.png" class="manager_chatvip">
+							<img v-show="item.svip == true" src="img/chatsvip.png" class="manager_chatvip">
+							<img src="img/concerned.png" class="manager_img"> 
+							{{item.body}}
+						</div>
+						<div v-else>
+							<span :class="{ fans_u1: item.level < 20, fans_u2: item.level > 19 && item.level < 30, fans_u3: item.level > 29 && item.level < 40, fans_u4: item.level > 39 && item.level < 50, fans_u5: item.level > 49 && item.level < 60, fans_u6: item.level > 59 }">
+							{{item.level}}</span>
+							<img v-show="item.vip == true" src="img/chatvip1.png" class="manager_chatvip">
+							<img v-show="item.svip == true" src="img/chatsvip.png" class="manager_chatvip">
+							<span :class="{chatLive_fontvip: item.vip == true,chatLive_fontsvip: item.svip == true }">{{item.username}}</span> : {{item.body}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="chatLive_botton">
+				<div class="chatLive_top_Left">
+					<img src="img/master_room_chat.png" @click="tapBtns(1)" class="chatLive_botton_img">
+					<img src="img/gift/1.png" @click="tapBtns(2)" class="chatLive_botton_img">
+				</div>
+				<div @click="downBotton()" class="chatLive_top_right">
+					<div class="chatLive_botton_bg">
+						{{ chatLiveDown }}
+					</div>
+				</div>
+			</div>
+			
+			<div v-show="isShowMask" class="chat_gift_mask" @click="tapHideGift()"></div>
+			<!--用户入场效果-->
+			<div class="chat_Admission"> 
+				<div class="chat_Admission_bg">
+					<img src="img/visitor_in_room_bg_30.png" class="Admission_bg_img1">
+					<img src="img/bb.png" class="Admission_bg_img2">
+				</div>
+				<div class="chat_Admission_txt">
+					<span class="chat_Ad_live" :class="{ fans_u1: 21 < 20, fans_u2: 21 > 19 && 21 < 30, fans_u3: 21 > 29 && 21 < 40, fans_u4: 21 > 39 && 21 < 50, fans_u5: 21 > 49 && 21 < 60, fans_u6: 21 > 59 }">21</span>
+					<span class="chat_Ad_name">Nhung Angel</span>
+					<span class="chat_Ad_font">进入了房间！</span>
+				</div>
+			</div>
+			<!--底部弹框-->
+			<div class="main-w10 live_mask">
+				<div class="main-flex main-aic live_title">
+					<!--礼物按钮-->
+					<div class="main-flex main-aic" @click="tapTab(1)">
+						<img width="13" :src="tabId == 1 ? 'img/gifts_01.png' : 'img/gift_01.png'"/>
+						<span class="live_item" :class="{ live_active: tabId == 1 }">礼物</span>
+					</div>
+					<span class="live_xian"></span>
+					<!--背包按钮-->
+					<div class="main-flex main-aic" @click="tapTab(2)">
+						<img width="15" :src="tabId == 2 ? 'img/backpacks_01.png' : 'img/backpack_02.png'"/>
+						<span class="live_item" :class="{ live_active: tabId == 2 }">背包</span>
+					</div>
+				</div>
+				
+				<!--礼物滑动部分-->
+				<div v-show="tabId == 1">
+					<!--礼物无内容时-->
+					<div v-if="isGiftList.length == 0" class="main-tac live_backpack">
+						<img class="main-vat" width="100" src="img/live_02.png"/>
+						<p class="live_t2">礼物空空的~</p>
+					</div>
+					
+					<!--礼物有内容时-->
+					<div v-else class="swiper-container live_content">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="item in isGiftList">
+								<ul class="main-box">
+									<li class="main-inline main-tac main-relative live_li" v-for="items in item" @click="tapSelectGift(items.id)">
+										<img width="45" :src="items.giftImage"/>
+										<div class="main-flex main-aic main-jcc">
+											<p class="live_price">{{ items.giftPrice }}</p>
+											<img width="12" src="img/beans2.png"/>
+										</div>
+										<p class="main-ellipsis live_name">{{ items.giftName }}</p>
+										<div v-show="selectId == items.id" class="main-w10 main-hg main-tar live_select">
+											<img width="15" src="img/live_03.png"/>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 底部圆点 -->
+		        		<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				
+				<!--背包部分-->
+				<div v-show="tabId == 2">
+					<!--背包无内容时-->
+					<div class="main-tac live_backpack">
+						<img class="main-vat" width="100" src="img/live_01.png"/>
+						<p class="live_t2">背包空空的~</p>
+					</div>
+					
+					<!--背包有内容时-->
+					<div class="swiper-container live_two main-hide">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="item in isGiftList">
+								<ul class="main-box">
+									<li class="main-inline main-tac live_li" v-for="items in item">
+										<img width="45" :src="items.giftImage"/>
+										<div class="main-flex main-aic main-jcc">
+											<p class="live_price">{{ items.giftPrice }}</p>
+											<img width="12" src="img/beans2.png"/>
+										</div>
+										<p class="main-ellipsis live_name">{{ items.giftName }}</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 底部圆点 -->
+		        		<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				
+				<!--发送按钮-->
+				<div class="main-flex main-aic live_btn">
+					<div class="main-flex01 main-flex">
+						<div @click="payvip()" class="main-flex main-aic live_recharge">
+							<img width="13" src="img/beans2.png"/>
+							<p class="live_num">{{ money }}</p>
+							<span  class="live_t1">充值</span>
+							<img width="15" src="img/right1.png"/>
+						</div>
+					</div>
+					<img @click="payvip()" class="live_vip" height="25" src="img/chatvip.png"/>
+					<img height="25" @click="sendGift()" src="img/chatsend.png"/>
+				</div>
+			</div>
+			<div class="main-w10 live_input">
+				<div class="index_pl index_pr index_bg">
+					<div class="main-flex main-chat-bg main-aic chat_enter">
+						<img v-if="chatLiveFly=='BD'" @click="sendLiveFly('FLY')" src="img/master_room_chat_fly_off.png" class="chat_fly_img"/>
+						<img v-else @click="sendLiveFly('BD')" src="img/master_room_chat_fly_open.png" class="chat_fly_img"/>
+						<input class="main-f1 main-hg chat_input_css" type="text" @input="tapInput()" v-model="inputContent" @focus="tapFocus()" />
+						<img @click="tapSendMsg()" src="img/chatsend.png" class="chat_send_img"/>
+					</div>
+				</div>
+				
+			</div>
+			<div class="chatLive_video">
+				<div class="chatLive_title">
+					<div class="chatLive-title-left">
+						<img src="img/all.png" class="chat-live-img">{{liveTitle}}
+					</div>
+					<div class="chatLive-title-right">
+						{{liveDown}}<img src="img/back.png" class="chat-live-back">
+					</div>
+				</div>
+				<div class="chatLive_content">
+					<div class="chatLive_tui_List" v-for="item in chatLiveMsg">
+						<div class="chatLive_list_content">
+							<img :src="item.channelImage" class="chatLive_content_img">
+							<div v-if="item.videoFlag == 1" class="chatLive_live_true">
+								直播中
+							</div>
+							<div v-else class="chatLive_live_false">
+								回放
+							</div>
+							<div class="chatList_User_bottom">
+								<div class="chatList_User">
+									{{ item.Vuser.username }}
+								</div>
+								<div class="chatList_onlineUsers">
+									<img class="mobile_right_number" src="img/mobile/index/user1.png">{{item.onlineUsers}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery.imgpreload.min.js?v=1d2fsd"></script>
+		<script src="js/swiper.js"></script>
+		<script src="js/ajax.js?v=1" type="text/javascript"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="js/chatLive.js?4332ddfd"></script>
+	</body>
+</html>

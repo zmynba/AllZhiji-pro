@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的优钻</title>
+		<meta name="viewport" content="width=750, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="x5-fullscreen" content="true">
+		<meta name="fullscreen" content="yes">
+		<link rel="stylesheet" href="css/main.css?V2020617" />
+		<link rel="stylesheet" href="../../css/index.css?V2020617" />
+		<link rel="stylesheet" href="css/index.css?V2020617" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+			.in-top {
+			    margin: 0 26px;
+			    overflow: hidden;
+			}
+			.main-m-img {
+			    margin-top: 6em;
+			    text-align: center;
+			}
+			.main-m-img p {
+			    font-size: 29px;
+			    color: #8C8C8C;
+			    margin-top: 15px;
+			}
+			.main-f1.main-bb.main-hg.index_pr {
+			    padding: 36px 28px 36px 0;
+			}
+			.in-listcontent {
+			    margin: 10px 0;
+			}
+			p.main-lf.bill_t4 {
+			    font-size: 30px;
+			}
+			p.main-lf.bill_t5 {
+			    font-size: 24px;
+			}
+			p.main-rt.bill_t6 {
+			    font-size: 30px;
+			    color: #54D3BA;
+			}
+			p.main-rt.bill_t5 {
+			    font-size: 24px;
+			}
+			img.main-vat.bill_img1 {
+			    width: 118px;
+			    margin: 36px 0px 36px 28px;
+			}
+		</style>
+	</head>
+	<body style="background:#fff;">
+		<div id="income" v-cloak class="main-box">
+			<!--头部-->
+			<div class="in-div">
+				<div class="in-bg">
+					<img src="img/bg@2x.png" class="in-bg-img">
+				</div>
+				<div class="in-content">
+					<div class="in-cont-n">
+						
+						<img src="img/vip@2x.png" class="in-con-img">
+						<span>{{ GNum }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="in-list">
+				<div class="in-title">{{imyDrillLang.MDrecording}}</div>
+				<div class="in-top">
+					<div class="in-top-left">
+	 					<span>{{ imyDrillLang.MDAll }}</span>
+						<img src="img/1@2x.png" style="display: none;"/>
+					</div>
+					<div class="in-top-right">{{ GNum }} {{ imyDrillLang.MDDrill }}</div>
+				</div>
+				<div class="in-listcontent">
+					<div v-if="getList.length==0" class="main-m-img">
+						<img src="img/giftnull@2x.png">
+						<p>{{ imyDrillLang.noshowGift }}</p>
+					</div>
+					<div v-else >
+						
+						<ul  class="bill_get">
+							<li class="main-bg main-flex main-aic" v-for="item in getList">
+								<img class="main-vat bill_img1" :src="item.gift.icon"/>
+								<div class="main-f1 main-bb main-hg index_pr">
+									<div class="main-over bill_pt">
+										<p class="main-lf bill_t4">{{ item.gift.name }}×{{ item.quantity }}</p>
+										<p class="main-rt bill_t6">{{ item.gift.price }}</p>
+									</div>
+									<div class="main-over bill_pt2">
+										<p class="main-lf bill_t5">{{imyDrillLang.from}} {{ item.from_user.nickname }}</p>
+										<p class="main-rt bill_t5">{{ item.time }}</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/app.js?V20206a17"></script>
+		<script src="js/lang.js?V20206a17"></script>
+		<script src="js/index.js?V20dddddff"></script>
+	</body>
+</html>

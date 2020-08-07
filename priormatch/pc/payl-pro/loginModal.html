@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="BothLive">
+	<meta name="description" content="BothLive">
+    <title>登录弹窗</title>
+    <link rel="stylesheet" href="../../page/css/main.css?v20190816" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: Microsoft YaHei;
+        }
+        .modal{
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .layer-modal{
+            width: 320px;
+            min-height: 350px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 20px 30px;
+            box-sizing: border-box;
+        }
+        .closeimg{text-align: right;}
+        .layer-title{
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .li-part{
+            margin-bottom: 10px;
+        }
+        .li-title{
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .li-block{
+            border-radius: 5px;
+            border: 1px solid #d9d9d9;
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+        }
+        .allregins{
+            width: 100%;
+            height: 40px;
+            padding: 6px;
+            font-size:14px;
+            color: #5a5a5a;
+            box-sizing: border-box;
+            background: none;
+            border: 0;
+        }
+        .allregins option{
+            width: 300px;
+            background: #fff;
+        }
+        .phone-part .li-block{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .regin-code{
+            display: inline-flex;
+            height: 100%;
+            padding: 0 10px;
+            font-size: 14px;
+            color: #5a5a5a;
+            border-right: 1px solid #d9d9d9;
+            align-items: center;
+        }
+        .phone-input{
+            display: inline-flex;
+            height: 100%;
+            border: 0;
+            align-items: center;
+            font-size: 14px;
+            padding-left: 10px;
+            color: #5a5a5a;
+            width: 100%;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .password-part .li-title{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .password-part .li-title span a{
+            color: #f4521e;
+			    font-size: 14px;
+        }
+        .login-btn{
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            background: #f4521e;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+        }
+		.closeimg img {
+		    width: 12px;
+		}
+		.login-register-btn{
+			margin-top: 20px;
+			width: 100%;
+			height: 40px;
+			background: #61a1f8;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 0;
+		}
+        .agree-part{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: #b5b5b5;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .agree-part a{
+            color:#f4521e;
+        }
+        .error-tip{
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-style: oblique;
+        }
+        .grey{
+            opacity: 0.5;
+        }
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal" id="loginModal">
+        <div class="layer-modal">
+            <div class="closeimg"><img src="../../image/Exit.png" / v-on:click="closepage"></div>
+            <div class="layer-title">{{interLang.phoneloginFont}}</div>
+            <div class="li-part">
+                <div class="li-title">{{interLang.countryarea}}</div>
+                <div class="li-block">
+                    <select id="reginSelect" class="allregins" v-model='code'>
+                        <option v-bind:value="item.code" v-for="item in list">{{item.country}}({{item.country_code}})({{item.code}})</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="li-part phone-part">
+                <div class="li-title">{{interLang.mobfont1}}</div>
+                <div class="li-block">
+                    <span class="regin-code">+{{code}}</span>
+                    <input v-bind:placeholder="interLang.writephone" v-model="pnumber" class="phone-input" v-on:change="checkphone" />
+                </div>
+                <div class="error-tip" v-show="phoneerror">{{phoneerror}}</div>
+            </div>
+
+            <div class="li-part password-part">
+                <div class="li-title">
+                    <span>{{interLang.password}}</span>
+                    <span><a href="javascript:void(0)" v-on:click="gopage(1)">{{interLang.loginforget}}</a></span>
+                </div>
+                <div class="li-block">
+                    <input v-bind:placeholder="interLang.loginpassword" v-model="password" v-on:change="checkpassword" class="phone-input" type="password" />
+                </div>
+                <div class="error-tip" v-show="passworderror">{{passworderror}}</div>
+            </div>
+
+            <button class="login-btn" v-bind:class="isdisabled?'grey':''" v-bind:disabled="isdisabled" v-on:click="loginin">{{interLang.loginBotton}}</button>
+            <!-- <div class="agree-part">
+                <input type="checkbox" name="check" v-bind:checked="check" v-on:change="selectbox" />{{interLang.youagree}}<a href="javascript:void(0)" v-on:click="gopage(2)">{{interLang.Agreement}}</a>{{interLang.and}}<a href="javascript:void(0)" v-on:click="gopage(3)">{{interLang.Policy}}</a>
+            </div> -->
+			 <button class="login-register-btn" v-on:click="register">{{interLang.zhuceanniu}}</button>
+        </div>
+    </div>
+    <script src="../../page/js/jquery-3.1.1.min.js"></script>
+    <script src="../../page/js/vue.js"></script>
+    <script src="js/lang-zhu.js?202007c09"></script>
+    <script src="js/app.js?20191228"></script>
+    <script>
+    var vm=new Vue({
+        el:"#loginModal",
+        data:{
+            list:[],
+            code:"86",
+            phoneerror:"",
+            passworderror:"",
+            check:false,
+            pnumber:"",
+            password:"",
+            aeskey:"",
+            interLang: interLang,
+        },
+        computed:{
+            isdisabled:function(){
+                return (this.phoneerror||(!this.password))?true:false
+            }
+        },
+        created(){
+            var that=this;
+            $.ajax({
+                url:"http://wap.priormatch.com/page/data/alibaba_country.json?vbfs",
+                type : 'get',				
+                data: '', 
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(res) {
+                    console.log('礼物：', res);
+                    var countryList = res.countryList;
+                    for(var i = 0; i < countryList.length; i++){
+                        if(that.code == countryList[i].code){
+                            countryList[i].show=1;
+                        }else{
+                            countryList[i].show=2;
+                        }
+                        
+                    }
+                    that.list = countryList;
+                },  
+            });
+
+        },
+        methods:{
+            checkphone:function(){
+                var _this=this;
+				if(this.code=='86'){
+					var reg=/^1[3456789]\d{9}$/;
+					if(this.pnumber==""){
+					    this.phoneerror= interLang.r1;
+					    return false;
+					}
+					if(!(reg.test(this.pnumber))){
+					    this.phoneerror= interLang.r2;
+					}else{
+					    this.phoneerror="";
+					}
+				}
+                
+            },
+            checkpassword:function(){
+                if(this.password==""){
+                    this.passworderror= interLang.r3;
+                    return false;
+                }
+            },
+            selectbox:function(){
+                this.check=!this.check;
+            },
+            postlogin(){
+                console.log("loginin")
+                var that = this;
+                var pwd = that.password;
+                var k = that.aeskey;
+                var c = '';
+                
+                for(var i=0;i<pwd.length;i++){
+                    var b = String.fromCharCode(pwd.charCodeAt(i)^k.charCodeAt(i));
+                    c =c + b;
+                }
+                pwd = Base64.encode(c);
+                var decode = Base64.decode(pwd);
+                var datarr = {
+                    regionid: that.code,
+                    phone: that.pnumber,
+                    pwd: pwd,
+                    aeskey: that.aeskey
+                }
+                $.ajax({
+                    url:"http://u.api.priormatch.com/user/login/"+app.urlc,  
+                    type : 'post',				
+                    data: datarr,  
+                    xhrFields: {
+                        withCredentials: true
+                    },	
+                    success:function(checkphone) { 
+                        if(checkphone.errno == 0){
+                            localStorage.setItem('userArr', JSON.stringify(checkphone.data));
+                            if(checkphone.data.gender == 0){
+                                location.replace('http://wap.priormatch.com/editinformation.html');
+                            }else{
+                                $.ajax({  
+                                    url:"http://u.api.priormatch.com/common/token/"+app.urlc,  
+                                    type : 'get',
+                                    data: '', 
+                                    xhrFields: {
+                                        withCredentials: true
+                                    },	
+                                    success:function(token) {  			
+                                        console.log(token);
+                                        if(token.errno == 0){
+                                            var tokens = 'bl_time='+ token.data.bl_time +'&bl_token='+ token.data.bl_token+'&uid='+ token.data.uid;
+                                            localStorage.setItem('token', tokens);
+                                            localStorage.setItem('rYToken', token.data.bl_token);
+                                            parent.location.reload();
+                                            
+                                        }else{
+                                            app.showToast({
+                                                title: interLang.r3,
+                                                duraiton: 1500
+                                            })
+                                            
+                                        }
+                                    },  
+                                    timeout:3000  
+                                });
+                                                    
+                            }
+                        }else{
+                            app.showToast({
+                                title:  interLang.r4,
+                                duraiton: 1500
+                            })
+                            	
+                        }
+                    },  
+                    timeout:3000  
+                });			
+                
+            },
+            tapEmpty(){//清空所有恢复默认
+                this.pnumber="";
+                this.password="";
+                this.phoneerror="";
+                this.passworderror="";
+            },
+            closepage(){
+                window.parent.document.getElementById("loginPage").style.display="none";
+            },
+            gopage(n){
+                var path="";
+                if(n==1){
+                    path="index.html";
+                }else if(n==2){
+                    path="pact/service.html";
+                }else{
+                    path="pact/privacy.html";
+                }
+                parent.location.href="http://wap.priormatch.com/"+path;
+            },
+			register(){
+				parent.location.href="http://wap.priormatch.com/pc/payl-pro/pcRegister.html";
+			},
+            //点击登录
+            loginin(){
+                var that=this;
+                $.ajax({  
+                    url:"http://u.api.priormatch.com/common/aeskey/"+app.urlc,  
+                    type : 'get',				
+                    data: '', 
+                    xhrFields: {
+                        withCredentials: true
+                    },	
+                    success:function(aeskey) {  
+                        if(aeskey.errno == 0){
+                            that.aeskey = aeskey.data;
+                            console.log("get aeskey")
+                            that.postlogin();
+                        }else{
+                            app.showToast({
+                                title: interLang.r4,
+                                duraiton: 1500
+                            })
+                        }
+                    },  
+                    timeout:3000  
+                });//获取aeskey
+            }
+        }
+    })
+    </script>
+</body>
+</html>

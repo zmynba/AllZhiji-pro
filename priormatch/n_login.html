@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>PriorMatch</title>
+        <meta name="keywords" content="priormatch、全球直播、真人视频聊天，一对一视频，陌生社交，即时聊天，iphone，android，app">
+        <meta name="description" content="PriorMatch是一款是高质量绿色健康的直播、聊天、结识新朋友的APP。">
+		<link rel="stylesheet" href="css/main.css?v20190128" />
+		<link rel="stylesheet" href="css/index.css?v20190128" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+            html,body{
+                font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+                position: relative;
+                height: 100%;
+                overflow: hidden;
+            }
+            .top-logo{
+                width: 375px;
+                height: 240px;
+                background: url('page/img/login/bg.png') no-repeat;
+                background-size: 100% 100%;
+            }
+            .top-logo img{
+                width: 58px;
+                margin-left: 23px;
+                margin-top:43px;
+            }
+            .top-welcome{
+                font-weight: bold;
+                color: #333;
+                font-size: 20px;
+                margin-top: 15px;
+                margin-left: 32px;
+            }
+            .input-group{
+                padding: 0 22px;
+                box-sizing: border-box;
+                margin-top: -15px;
+            }
+            .phone-part{
+                width: 100%;
+                border-bottom: 1px solid #EBEBEB;
+                display: flex;
+                align-items: center;
+                padding-bottom: 10px;
+            }
+            .phone-part input{
+                border: 0;
+                color: #333;
+                font-size: 14px;
+                display: inline-flex;
+                width: 240px;
+                height: 20px;
+                align-items: center;
+                padding: 0 15px;
+                box-sizing: border-box;
+                
+            }
+            .phone-part img{
+                width: 14px;
+                margin-left: 9px;
+                margin-right: 9px;
+            }
+            .phone-part a{
+                height: 20px;
+                display: inline-flex;
+                align-items: center;
+                border-right: 1px solid #EBEBEB;
+                color: #333;
+                font-size: 14px;
+            }
+            .password-part{
+                width: 100%;
+                border-bottom: 1px solid #EBEBEB;
+                padding:10px 5px;
+            }
+            .password-part input{
+                border: 0;
+                color: #333;
+                font-size: 14px;
+                height: 20px;
+                width: 100%;
+            }
+            .btn-part{
+                width: 100%;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-size: 14px;
+                padding-top: 5px;
+                box-sizing: border-box;
+                margin-top: 45px;
+            }
+            .grey-btn{
+                background: url('page/img/login/nopress.png') no-repeat;
+                background-size: 100%;
+            }
+            .b-select-btn{
+                background: url('page/img/login/press.png') no-repeat;
+                background-size: 100%;
+            }
+            .b-selected-btn{
+                background: url('page/img/login/pressed.png') no-repeat;
+                background-size: 100%;
+            }
+            .bottom-btn{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                padding:10px 15px;
+            }
+            .bottom-btn a:nth-of-type(1){
+                color: #ED6B6C;
+                font-size: 13px;
+            }
+            .bottom-btn a:nth-of-type(2){
+                color: #A4A8AD;
+                font-size: 13px;
+            }
+            .bottom-word{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                margin-left: -110px;
+                box-sizing: border-box;
+            }
+            .bottom-word img{
+                width: 16px;
+                margin-right: 4px;
+                margin-top: -3px;
+            }
+            .bottom-word span:nth-of-type(1){
+                font-size: 12px;
+                color:#333333;
+                margin:0 6px 0 4px;
+            }
+            .bottom-word span:nth-of-type(2){
+                font-size: 12px;
+                color:#ED6B6C;
+                display: inline-flex;
+                align-items: center;
+            }
+            .bottom-word span:nth-of-type(2) a{
+                font-size: 12px;
+                color:#ED6B6C;
+                display: inline-flex;
+                align-items: center;
+            }
+            .b-line{
+                border-bottom: 1px solid #FADD55;
+            }
+            .modals_yes{
+                color: #ED6B6C;
+            }
+            .modals_content{
+                height: 150px;
+            }
+            .modals_up{
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loginpage" class="login-page" v-bind:style="{height:ScreenH}" v-cloak>
+            <div class="top-logo">
+                <img src="page/img/login/logo.png" alt="">
+                <div class="top-welcome">{{interLang.n_wel_join}} WordMatch</div>
+            </div>
+
+            <div class="input-group">
+                <div class="phone-part" v-bind:class="inputindex==1?'b-line':''">
+                    <a href="country.html?page=1">+{{countryCode}}<img src="page/img/login/arrow.png" alt=""></a>
+                    <input type="text" v-bind:placeholder="interLang.writephone" @click="inputindex=1" v-model="mobile">
+                    <img src="page/img/login/delect.png" alt="" @click="clearphone">
+                </div>
+                <div class="password-part" v-bind:class="inputindex==2?'b-line':''">
+                    <input type="password" v-bind:placeholder="interLang.loginpassword" @click="inputindex=2" v-model="password">
+                </div>
+
+                <div class="btn-part" v-bind:class="btnclass" @click="checkPass" v-if="circleindex">{{interLang.loginBotton}}</div>
+                <div class="btn-part" v-bind:class="btnclass" v-else>{{interLang.loginBotton}}</div>
+
+                <div class="bottom-btn">
+                    <a href="n_register.html">{{interLang.zhuceanniu}}</a>
+                    <a href="n_forget.html">{{interLang.loginforget}}</a>
+                </div>
+            </div>
+
+            <div class="bottom-word" v-show="hideshow">
+                <img v-bind:src="circleindex?'page/img/login/selected.png':'page/img/login/unselected.png'" @click="circleindex=!circleindex" alt="">
+                <span>{{interLang.n_agree_word}}</span>
+                <span><a href="pact/supervision.html">{{interLang.Agreement}}</a>&nbsp;|&nbsp;&nbsp;<a href="pact/privacy.html">{{interLang.Policy}}</a></span>
+            </div>
+        </div>
+    <script src="page/js/jquery-2.1.4.min.js"></script>
+    <script src="page/js/vue.js"></script>
+    <script src="page/js/lang-zhu.js?v20190720"></script>
+    <script src="page/js/app.js?v20200220"></script>
+    <script>
+        var vm= new Vue({
+            el:"#loginpage",
+            data:{
+                interLang:interLang,
+                inputindex:0,
+                btnindex:0,
+                circleindex:true,
+                aeskey:"",
+                countryCode:"86",
+                mobile:"",
+                password:"",
+                ScreenH:0,
+
+                defaultHeight: '0', // 默认屏幕高度
+                showHeight: 0, // 实时屏幕高度
+                hideshow: true, // 显示或者隐藏footer,
+
+            },
+            computed:{
+                btnclass:function(){
+                    if(!this.circleindex){
+                        return "grey-btn"
+                    }else if(this.circleindex&&this.btnindex==0){
+                        return "b-select-btn"
+                    }else if(this.circleindex&&this.btnindex==1){
+                        return "b-selected-btn"
+                    }
+                }
+            },
+            watch: {
+                // 监听键盘弹出后屏幕高度变化
+                showHeight: function() {
+                    if (this.defaultHeight !== this.showHeight) {
+                        // 键盘弹出操作
+                        this.hideshow = false
+                    } else {
+                        // 键盘不弹出操作
+                        this.hideshow = true
+                    }
+                }
+            },
+            created:function(){
+                if(JSON.parse(localStorage.getItem("loginCon"))==null){
+                    var loginCon={};
+                    loginCon.Country="中国";
+                    loginCon.countryCode="86";
+                    loginCon.countryCodeEn="CN";
+                    loginCon.mobile="";
+                    localStorage.setItem("loginCon",JSON.stringify(loginCon));
+                }else{
+                    this.countryCode=JSON.parse(localStorage.getItem("loginCon")).countryCode;
+                }
+            },
+            mounted:function(){
+                var that=this;
+                $.ajax({  
+                    url:"http://u.api.priormatch.com/common/aeskey/"+app.urlc,  
+                    type : 'get',				
+                    data: '', 
+                    xhrFields: {
+                        withCredentials: true
+                    },	
+                    success:function(aeskey) {  			
+                        console.log(aeskey);
+                        if(aeskey.errno == 0){
+                            that.aeskey = aeskey.data;
+                            
+                        }else{
+                            app.showToast({
+                                title: aeskey.errmsg,
+                                duraiton: 1500
+                            })
+                        }
+                    },  
+                    timeout:3000  
+                });
+
+                this.defaultHeight = $(window).height()
+                // window.onresize监听页面高度的变化
+                window.onresize = () => {
+                    return (() => {
+                        this.showHeight = document.body.clientHeight
+                    })()
+                }
+                var _this=this;
+                if(localStorage.getItem('lang')!=null&&localStorage.getItem('lang')!="zh"){
+                    $(".bottom-word").css("margin-left",0);
+                    $(".bottom-word").css("left",0);
+                }
+            },
+            methods:{
+                		//点击登录
+                checkPass(){
+                    this.btnindex=1;
+                    var that = this;
+                    var pwd = that.password;
+                    var k = that.aeskey;
+                    var c = '';
+                    var reg = /^(?!\D+$)(?![^a-zA-Z]+$)\S{6,20}$/;
+                    if(that.countryCode=="86"){ // 国内手机号进行标准验证
+                        if(this.mobile.toString().length!=11){
+                            app.showToast({
+                                title:interLang.n_mobile_error
+                            })
+                            return false;
+                        }
+                    }else{
+                        if(this.mobile.toString().length<5){
+                            app.showToast({
+                                title:interLang.n_mobile_error
+                            })
+                            return false;
+                        }
+                    }
+
+                    var data = {
+                        regionid: that.countryCode,
+                        phone: that.mobile
+                    }
+
+                    $.ajax({  
+                        url:"http://u.api.priormatch.com/common/checkphone/"+app.urlc,  
+                        type : 'post',				
+                        data: data,  
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        success:function(cmObj) {  
+                            //console.log(cmObj);
+                            if(cmObj.errno==0){
+                                if(cmObj.data == 1){						
+                                    if(that.password.toString().length<6||that.password.toString().length>20){
+                                        app.showToast({
+                                            title:interLang.n_passsowrd_error,
+                                            duraiton: 2000
+                                        })
+                                        return false;
+                                    }
+                                    for(var i=0;i<pwd.length;i++){
+                                        var b = String.fromCharCode(pwd.charCodeAt(i)^k.charCodeAt(i));
+                                        c =c + b;
+                                    }
+                                    pwd = Base64.encode(c);
+                                    var decode = Base64.decode(pwd);
+                                    that.btnindex=0;
+                                    var datarr = {
+                                        regionid: that.countryCode,
+                                        phone: that.mobile,
+                                        pwd: pwd,
+                                        aeskey: that.aeskey
+                                    }
+                                    $.ajax({
+                                        url:"http://u.api.priormatch.com/user/login/"+app.urlc,  
+                                        type : 'post',				
+                                        data: datarr,  
+                                        xhrFields: {
+                                            withCredentials: true
+                                        },	
+                                        success:function(checkphone) {  
+                                            console.log(checkphone);
+                                            if(checkphone.errno == 0){
+                                                localStorage.setItem('userArr', JSON.stringify(checkphone.data)); 
+                                                if(checkphone.data.gender == 0){
+                                                    location.replace('editinformation.html');
+                                                }else{
+                                                    $.ajax({  
+                                                        url:"http://u.api.priormatch.com/common/token/"+app.urlc,  
+                                                        type : 'get',
+                                                        data: '', 
+                                                        xhrFields: {
+                                                            withCredentials: true
+                                                        },	
+                                                        success:function(token) {  			
+                                                            console.log(token);
+                                                            if(token.errno == 0){
+                                                                var tokens = 'bl_time='+ token.data.bl_time +'&bl_token='+ token.data.bl_token+'&uid='+ token.data.uid;
+                                                                localStorage.setItem('token', tokens);
+                                                                localStorage.setItem('rYToken', token.data.bl_token);
+                                                                location.replace('page/online.html');
+                                                                
+                                                            }else{
+                                                                app.showToast({
+                                                                    title: token.errmsg,
+                                                                    duraiton: 1500
+                                                                })
+                                                                
+                                                            }
+                                                        },  
+                                                        timeout:3000  
+                                                    });
+                                                                        
+                                                }
+                                            }else{
+                                                app.showToast({
+                                                    title: interLang.n_passsowrd_error,
+                                                    duraiton: 1500
+                                                })
+                                                $.ajax({  
+                                                        url:"http://u.api.priormatch.com/common/aeskey/"+app.urlc,  
+                                                        type : 'get',				
+                                                        data: '', 
+                                                        xhrFields: {
+                                                            withCredentials: true
+                                                        },	
+                                                        success:function(aeskey) {  			
+                                                            console.log(aeskey);
+                                                            if(aeskey.errno == 0){
+                                                                that.aeskey = aeskey.data;
+                                                                
+                                                            }else{
+                                                                app.showToast({
+                                                                    title: aeskey.errmsg,
+                                                                    duraiton: 1500
+                                                                })
+                                                            }
+                                                        },  
+                                                        timeout:3000  
+                                                    });	
+                                            }
+                                        },  
+                                        timeout:3000  
+                                    });	
+
+                                }else{
+                                    app.showModal({
+                                        content:interLang.n_mobile_nouse,
+                                        confirmText:interLang.n_register_go,
+                                        success:function(res){
+                                            if(res.confirm){
+                                                //弹层去注册页面
+                                                window.location.href = 'n_register.html';
+                                            }
+                                        }
+
+                                    })
+                                }
+                            }else{
+                                app.showToast({
+                                    title: cmObj.errmsg,
+                                    duraiton: 1500
+                                })
+                            }
+                            
+                        },  
+                        timeout:3000  
+                    });	
+            
+                },
+                clearphone(){
+                    this.mobile="";
+                },
+                gopage(n){
+                    if(n==1){
+                        location.replace('n_register.html');
+                    }else{
+                        location.replace('n_forget.html');
+                    }
+                }
+            }
+        })
+    </script>
+    </body>
+</html>

@@ -1,0 +1,196 @@
+
+<html>
+    <head>
+        <title data-react-helmet="true">test cordova</title>
+        <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+        <style>
+            .box{
+                position: relative;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 50;
+            }
+            .box p{
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h2><p>test cordova</p></h2>
+        </div>
+        
+        <div class="box">
+            <button onclick="openShare();">openShare</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="getAppVersion();">getAppVersion</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="gotoBuyCoin();">打开充值币的窗口</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="syncCookies();">同步cookie</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="logout();">退出登录</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="hideNavigationBar(true);">隐藏导航栏</button>
+        </div>
+        
+        <div class="box">
+            <button onclick="hideNavigationBar(false);">显示导航栏</button>
+        </div>
+        
+        <!-- 下面 javascrit src 路径部分是 iOS 系统的路径, 其他系统使用时注意更换 -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- cordova_plugins_iOS.js 是供 iOS app 本地使用的, 线上环境使用 cordova_plugins.js -->
+        <script type="text/javascript" src="cordova_plugins_iOS.js"></script>
+        
+        <script type="text/javascript">
+        
+            function appVersoinSuccess(appVersion)
+            {
+                alert("appVersion: " + appVersion);
+            }
+            
+            function appVersoinFailure(err)
+            {
+                alert(err);
+            }
+        
+            /**
+             获取app的版本信息, 格式形如: BothLive__1.0.0.0001__iPhone__12.0__zh-Hans_US__zh
+             */
+            function getAppVersion()
+            {
+                var appVersion = window.BothLive.getAppVersion(appVersoinSuccess, appVersoinFailure);
+            }
+        
+            function openShare()
+            {
+                var shareImgUrl = "图片地址";
+                var shareContent = "分享内容";
+                var shareUrl = "分享url";
+                var shareTitle = "分享标题";
+                
+                var params = {shareImgUrl, shareContent, shareUrl, shareTitle};
+                window.BothLive.share(null, null, params);
+            }
+        
+            /**
+             打开充值币的窗口
+             */
+            function gotoBuyCoin() {
+                BothLive.gotoBuyCoin(null, null);
+            }
+        
+            /**
+             点击了导航栏的返回按钮后, 客户端会调用 h5 端的 navBackClicked 方法, h5 端调用 goToBack 方法通知客户端处理
+             */
+            function navBackClicked () {
+                goToBack(true);
+            }
+
+            function goToBack(toBack) {
+                window.BothLive.goToBackHistory(null, null, {"gotoBack": toBack});
+            }
+
+            function enableBackHistory(enable) {
+                window.BothLive.enableBackHistory(null, null, {"enable": enable});
+            }
+        
+            /**
+             cookieArray 以下json字符串数组
+             {"CookieName":"",
+             "CookieValue":"",
+             "CookieDomain":"",
+             "CookieOriginURL":"",
+             "CookiePath":"",
+             "CookieSecure":0,
+             "CookieExpires":"",
+             "CookieDiscard":0}
+             
+             CookieName CookieValue CookieDomain 这三个字段必须有, 且不能为空
+             CookieSecure
+             CookieExpires --> since 1970 时间戳
+             CookieDiscard --> httpOnly
+             */
+            function syncCookies() {
+                var cookie = `{"CookieName":"",
+                    "CookieValue":"",
+                    "CookieDomain":"",
+                    "CookieOriginURL":"",
+                    "CookiePath":"",
+                    "CookieSecure":0,
+                    "CookieExpires":"",
+                    "CookieDiscard":0}
+                    `
+                ;
+                var cookieArray = [cookie];
+                window.BothLive.syncCookies(null, null, cookieArray);
+            }
+            
+            function logout() {
+                window.BothLive.logout(null, null);
+            }
+        
+            function hideNavigationBar(hide) {
+                var params = {hide};
+                window.BothLive.hideNavigationBar(null, null, params);
+            }
+            
+            function deviceready()
+            {
+                // 开启调试模式, H5打印的日志会在app native console 里打印
+                /*
+                "LOG",
+                "ERROR",
+                "WARN",
+                "INFO",
+                "DEBUG"
+                 */
+                //window.console.useLogger(true);
+                //window.console.level("DEBUG");
+                //window.console.debug("debug info was printed on the local console");
+                
+                // 显示分享图标, 导航栏右侧
+                var showShare = true;
+                var shareImgUrl = "图片地址";
+                var shareContent = "分享内容";
+                var shareUrl = "分享url";
+                var shareTitle = "分享标题";
+                
+                var params = {showShare, shareImgUrl, shareContent, shareUrl, shareTitle};
+                //window.BothLive.showShareIcon(null, null, params);
+
+                // H5对导航栏返回按钮进行拦截
+                enableBackHistory(true);
+
+                // 显示车的预览图标, 导航栏右侧
+                var show = true;
+                var carId = "";
+                params = {show, carId};
+                //window.BothLive.CarMarket.showPreviewIcon(null, null, params);
+
+                // 显示车市的攻略图标, 导航栏右侧
+                show = true;
+                params = {show};
+                window.BothLive.CarMarket.showQuestionIcon(null, null, params);
+            }
+            
+            document.addEventListener('deviceready', deviceready, false);
+        </script>
+        
+    </body>
+</html>

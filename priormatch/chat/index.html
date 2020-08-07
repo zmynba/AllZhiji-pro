@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <title>BothLive</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta name="Keywords" content="真人视频聊天，一对一视频，陌生社交，即时聊天，亲密交友，iphone，android，app"/>
+	<meta name="description" content="Fastestdate是一款真人在线一对一视频聊天软件，用户通过BothLive可以和来自世界各地的人进行一对一视频对话。"/>
+	<link rel="Bookmark" type="image/x-icon" href="favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<meta property="qc:admins" content="2041450627605241456375"/>
+    <meta property="wb:webmaster" content="5095a0b1f6ec9d15"/>
+	<link rel="stylesheet" href="css/main.css?v20200324" />
+    <link type="text/css" rel="stylesheet" href="css/login.css?v20200324">
+	<link rel="stylesheet" type="text/css" href="css/my.css?v20200324"/>
+	<style>
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<div id="indexT" class="lg_wrapper">
+    <div class="lg_bg">
+        <div class="lg_bg_blur"></div>
+        <img id="lg_bg" src="img/bg.jpg" class="lg_img">
+    </div>
+	
+	
+    <div class="head">
+        <div class="wrp">
+            <em class="head_logo"></em>
+            <dl class="head_lang">
+				<dd id="head_lang_txt" class="head_lang_txt">{{ langName }}</dd> 
+				<dd class="head_lang_arrow"></dd> 
+				<dd id="head_lang_viewer" class="head_lang_viewer">
+					<div class="head_lang_item" v-on:click="langOpen('zh')">中文简体</div>
+					<div class="head_lang_item" v-on:click="langOpen('en')">English</div>
+				</dd> 
+				<dd class="head_lang_arrow_view"></dd>
+			</dl>
+        </div>
+    </div>
+
+    <div class="reg">
+        <div class="wy_center">
+            <div class="wy_top">
+               
+                <div class="show_mf show_mf1"></div>
+            </div>
+            <div class="wy_right main-box test-form">
+				<img src="images/login/bg3.png" style="width: 100%;" />
+                <div class="main-w10 main-box test-content">
+					<div class="main-box test-title">
+						{{ adminLang.indexTitle }}
+					</div>
+					<!--国家-->
+					<div class="main-box test-user">
+						<img class="main-va" src="images/login/world.png"/>
+						<select id="reginSelect" class="allregins test-bb-01" v-model='code'>
+							<option v-bind:value="item.code" v-for="item in list">{{item.country}}({{item.country_code}})({{item.code}})</option>
+						</select>
+					</div>
+                	<!--用户名-->
+                	<div class="main-box test-user">
+                		<img class="main-va" src="images/login/name.png"/>
+                		<input class="main-va test-input test-bb-01" type="text"  :placeholder="popnumber" v-model="pnumber" v-on:change="checkphone" style="color: #333333;" />
+                	</div>
+                	<!--密码-->
+                	<div class="main-box test-pwd">
+                		<img class="main-va" src="images/login/pass.png"/>
+                		<input class="main-va test-input test-bb-02" type="password" :placeholder="popass" v-model="password" v-on:change="checkpassword" style="color: #333333;" />
+                	</div>
+                	
+                	<!--登陆按钮-->
+                	<div class="main-tac main-box main-c1 test-btn"  v-on:click="loginin">
+                		{{ adminLang.loginon }}
+                	</div>
+                	
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="lg_bottom bt_links">
+        <div class="bt_about">
+            Copyright © 1998 - <span id="nowYear">2019</span> BothLive. All Rights Reserved
+
+        </div>
+
+    </div>
+</div>
+<script>
+    document.langCode = "zh";
+    document.i18n ={};
+	var date=new Date();
+    var year=date.getFullYear();
+    document.getElementById("nowYear").innerHTML=year;
+</script>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/lang-zhu.js?v20200407"></script>
+<script src="js/lang.js?v20200407"></script>
+<script src="js/app.js?v20200407"></script>
+<script src="js/common.js?v20200407"></script>
+<script src="js/index.js?v20200407"></script>
+</body>
+</html>

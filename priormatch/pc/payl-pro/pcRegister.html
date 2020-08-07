@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>PrioMatch</title>
+	<meta name="keywords" content="PrioMatch">
+	<meta name="description" content="PrioMatch">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../../page/css/main.css?v20200609" />
+	<link rel="stylesheet" href="../../page/css/index.css?v20200609" />
+	<link rel="stylesheet" href="css/pay.css?v20200714ab" />
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    
+<style>
+	[v-cloak]{
+		display: none;
+	}
+
+
+</style>
+</head>
+<body>
+    <div class="container" v-cloak  id="pcRegister">
+        <div class="top-part">
+            <img src="img/logo1.png" alt="">
+			
+			<div class="top-right" @click="SwitchAccount()">
+			  <el-button type="info"  icon="el-icon-back" plain></el-button>
+			</div>
+        </div>
+
+        <div class="re-container">
+			<div class="re-success">
+				<el-steps :active="registerShow" finish-status="success">
+				  <el-step :title="interLang.n_register_phone"></el-step>
+				  <el-step :title="interLang.dpAdd1"></el-step>
+				  <el-step :title="interLang.loginFont"></el-step>
+				</el-steps>
+			</div>
+			<div v-show="registerShow==0" class="re-div">
+				<div class="page-title">
+				    <div class="top-welcome">{{interLang.n_register_phone}}</div>
+				</div>
+				<div class="input-group">
+					<div class="li-block">
+					    <select id="reginSelect" class="allregins" v-model='countryCode'>
+					        <option v-bind:value="item.code" v-for="item in list">{{item.country}}({{item.country_code}})({{item.code}})</option>
+					    </select>
+					</div>
+					<div class="phone-part" v-bind:class="inputindex==1?'b-line':''">
+					    <a style="pointer-events: none;" href="">+{{countryCode}}<img src="../../page/img/login/arrow.png" alt=""></a>
+					    <input type="text" v-bind:placeholder="interLang.writephone" @click="inputindex=1" v-model="mobile">
+					    <img src="../../page/img/login/delect.png" alt="" @click="clearphone">
+					</div>
+					<div class="password-part verification-part" v-bind:class="inputindex==2?'b-line':''">
+					    <input type="tel" v-bind:placeholder="interLang.n_ver_code" @click="inputindex=2" v-model="verificationcode" maxlength="6">
+					    <span class="verification-word" @click="checkMobile" v-if="!codetime">{{interLang.n_send_code}}</span>
+					    <span class="verification-g-word" v-if="codetime">{{interLang.n_send_code}}  ({{sendNumber}})</span>
+					</div>
+					
+					<div class="btn-part b-select-btn"  @click="saveNext" v-if="verificationcode.length>0">{{interLang.nextstep}}</div>
+					<div class="btn-part grey-btn"  v-else>{{interLang.nextstep}}</div>
+				</div>
+			</div>
+			<div v-show="registerShow==1" class="re-div">
+				<div class="page-title">
+				    <div class="top-welcome">{{interLang.dpAdd1}}</div>
+				</div>
+				<div class="input-group">
+					
+					<div class="password-part" v-bind:class="inputindex==3?'b-line':''">
+						<input type="password" v-bind:placeholder="interLang.loginpassword" @click="inputindex=3" v-model="password">
+					</div>
+					<div class="btn-part" v-bind:class="btnclass" @click="savepwd" v-if="password.length>0">{{interLang.nextstep}}</div>
+					<div class="btn-part" v-bind:class="btnclass"  v-else>{{interLang.nextstep}}</div>
+				</div>
+			</div>
+			<div v-show="registerShow==2" class="re-div">
+				<div class="page-title">
+				    <div class="top-welcome">{{interLang.loginFont}}</div>
+				</div>
+				<div class="input-group">
+					<div class="main-flex main-aic main-mob edit-p">
+						<div class="editinfo-img edit_photo">
+							<input type='file' id='PhotoF'>
+							<img id="phone_ok" src="../../image/moren@2x.png" class="edit-moren">
+						</div>
+							<img src="../../image/edit_Photo@2x.png" class="edit-Photo">
+					</div>
+					<div class="main-aic main-mob">
+						<div class="editinfo-text">{{ interLang.editinfofont }}</div>
+					</div>
+					<div class="main-bg main-border">
+						<div class="main-mob">
+							<div class="pc-re-title">{{ interLang.nick }}</div>
+							<div class="pc-re-cn">
+								<input class="main-f1 main-hg login_mobiles login-inputs " maxlength="12" type="text" v-model="nameUser"  @input="tapMobile()" autofocus="autofocus" :placeholder="interLang.dpAdd3"/>
+							</div>
+						</div>
+						<div class="main-edit">
+							
+							<div class="pc-re-cn">
+								<div class="edit-color login-vf-size">{{ interLang.dpAdd4 }}</div>
+								<div class="edit-right login-vf-size">{{ nameNumber }}/12</div>
+							</div>
+						</div>
+						<div class="main-mob">
+							<div class="pc-re-title">{{ interLang.birth }}</div>
+							<div class="pc-re-cn">
+							<el-date-picker
+							  v-model="birthday"
+							  type="date"
+							  :placeholder="interLang.dpAdd5">
+							 </el-date-picker>
+							</div>
+						</div>
+						<div class="main-mob">
+							<div class="pc-re-title">{{ interLang.gender }}</div>
+							<div class="pc-re-cn">
+							<template>
+							  <el-radio v-model="gender" label="1">{{ interLang.boy }}</el-radio>
+							  <el-radio v-model="gender" label="2">{{ interLang.girl }}</el-radio>
+							</template>
+							</div>
+						</div>
+						
+					</div>
+					<div class="btn-part" v-bind:class="btnclass" @click="checkPass" >{{interLang.loginBotton}}</div>
+				</div>
+			</div>
+        </div>
+
+        <div class="paypage-footer">
+                ICP证:豫ICP备18006054号-2 豫公网安备 41010502004478号<img src="img/gov.png" /> 豫网文【2018】11679-198号 全国文化市场举报平台 Copyright © 1998 - 2020 BothLive. All Rights Reserved
+        </div>
+    </div>
+	<script src="../../page/js/jquery-2.1.4.min.js"></script>
+	<script src="../../page/js/jquery.selector.js?v20181226xd"></script>
+	<script src="../../page/js/cropper.js"></script>
+	<script src="../../page/js/exif.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="js/lang-zhu.js?20200714"></script>
+	<script src="js/app.js?20200714"></script>
+	<script src="js/pcRegister.js?20200714"></script>
+
+</body>
+</html>

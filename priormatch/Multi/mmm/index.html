@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BothLiveBL</title>
+		<meta name="keywords" content="BothLivekey">
+		<meta name="description" content="BothLivedes">
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+			.looklist{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.card-container{
+				margin-bottom: 10px;
+				position: relative;
+			}
+			.el-card__body{
+				padding:0;
+			}
+			.pagination-row{
+				margin-top: 30px;
+			}
+			.time {
+			  font-size: 13px;
+			  color: #999;
+			}
+			
+			.bottom {
+			  margin-top: 13px;
+			  line-height: 12px;
+			}
+		  
+			.button {
+			  padding: 0;
+			  float: right;
+			}
+		  
+			.image {
+			  width: 100%;
+			  display: block;
+			}
+			.img-container{
+				width: 100%;
+				height: 250px;
+			}
+			.clearfix:before,
+			.clearfix:after {
+				display: table;
+				content: "";
+			}
+			
+			.clearfix:after {
+				clear: both
+			}
+			.btnfun{
+				text-align: center;
+			}
+			.card-title{
+				height: 22px;
+				text-align: center;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.card-id{
+				position: absolute;
+				top: 10px;
+				left: 20px;
+				color: red;
+				font-size: 14px;
+			}
+			video{
+				width: 100%;
+			}
+			.layer-container{
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				background: rgba(0, 0, 0, 0.6);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: 0;
+				left: 0;
+			}
+			.video-container{
+				width: 500px;
+				height: 445px;
+				padding: 10px;
+				border-radius: 5px;
+				background: #FFFFFF;
+				position: relative;
+			}
+			iframe.m-div {
+			    float: left;
+			}
+			.chat-info {
+			    margin-left: 10px;
+			    float: left;
+				font-size: 14px;
+			}
+			img.video-close {
+			    width: 15px;
+			    position: absolute;
+			    right: 10px;
+			}
+			.chat-bottom {
+			    position: absolute;
+			    bottom: 20px;
+			    right: 20px;
+			}
+			.chat-msg {
+			    width: 220px;
+			    padding: 5px;
+			    font-size: 12px;
+			    height: 280px;
+			}
+			.chat-div-m {
+			    margin: 7px 0;
+			}
+			.chat-null {
+			    color: #d4d4d4;
+			    font-size: 13px;
+			    margin: 10px 20px;
+			    text-align: center;
+			}
+			.chat-list {
+			    float: left;
+			    background: #d4d4d4;
+			    color: #000;
+			    overflow: hidden;
+			    padding: 3px 0px 10px;
+			    border-radius: 10px;
+			    margin: 10px 5px;
+			}
+			.chat-list-id {
+			    float: left;
+			    margin: 5px;
+			    font-size: 12px;
+				color: red;
+			}
+			img.video-list-close {
+			   float: right;
+			   width: 10px;
+			   margin-top: 7px;
+			   margin-right: 5px;
+			}
+			.chat-list-bottom {
+			    text-align: center;
+			}
+			#content {
+				width: 100%;
+				height:100%;
+				margin: 0px;
+    			padding: 5px;
+				overflow-y:auto;
+				border:1px dashed #c5c7ca;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="looklist" id="listdata">
+			<el-button type="primary" round icon="el-icon-refresh" @click="refreshdata">刷新</el-button>
+			<el-divider></el-divider>
+			<el-container direction="vertical">
+				<div class="chat-title">可疑主播：</div>
+				<div class="chat-border" v-if="dubiousList.length>0">
+					<div class="chat-list" v-for="item in dubiousList">
+						<div>
+							<div class="chat-list-id">{{ item }}</div>
+							<img src="../page/img/binding_Quit@3x.png" class="video-list-close" @click="dubiousClose(item)"/>
+						</div>
+							
+						<iframe name="mainFrame" class="m-div" :src="'chatlive12.html?hid='+item" width="190" scrolling="no" height="356" frameborder="0"></iframe>
+						
+					</div>
+				</div>
+				<div v-else class="chat-null">暂无数据</div>
+				<div class="chat-list-bottom">
+					<el-button type="success" round @click="openmuitl">跳转监控</el-button>
+				</div>
+			</el-container>	
+			<el-divider></el-divider>
+			<el-container direction="vertical">
+				<div class="chat-title" style="margin-bottom: 20px;">正在直播的主播：</div>
+				<el-row :gutter="20">
+					<el-col :span="6" v-for="(item, index) in curlist" :key="index" class="card-container">
+					  <el-card>
+						<el-image
+						style="width: 283px; height: 180px;"
+						:src="item.photo"
+						fit="cover">
+						</el-image>
+						<div style="padding: 14px;">
+						  <div class="card-title">{{item.title?item.title:'暂无数据'}}</div>
+						  <div class="bottom clearfix btnfun">
+							<el-button type="success" round @click="openvideo(item.uid)">播放</el-button>
+							<el-button type="primary" round @click="dubiousAdd(item.uid)">添加</el-button>
+						  </div>
+						</div>
+					  </el-card>
+					  <div class="card-id">ID:{{item.uid}}</div>
+					</el-col>
+				</el-row>
+				
+				<el-row class="pagination-row">
+					<el-pagination
+					background
+					layout="prev, pager, next"
+					@current-change="handleCurrentChange"
+					:current-page.sync="curpage"
+					:page-size="pagesize"
+					:total="total">
+					</el-pagination>
+				</el-row>
+			</el-container>
+
+			<!-- 播放弹窗 -->
+			<!-- <el-dialog
+			title="提示"
+			:visible.sync="dialogVisible"
+			width="30%"
+			:before-close="handleClose">
+			<div class="video-container">
+				<video id="videoElement"></video>
+			</div>
+			</el-dialog> -->
+			<div class="layer-container" v-show="dialogVisible">
+				<div class="video-container">
+					<img src="../page/img/binding_Quit@3x.png" class="video-close" @click="closevideo"/>
+					<iframe name="mainFrame" class="m-div" :src="roomurl" width="250" scrolling="no" height="445" frameborder="0"></iframe>
+					
+					<div class="chat-info">
+						<div class="chat-info-name chat-div-m">主播昵称：{{ chatName }}</div>
+						<div class="chat-info-id chat-div-m">ID：{{ chatId }}</div>
+						<div class="chat-mag-t chat-div-m">直播间聊天内容</div>
+						<div class="chat-msg chat-div-m" style="padding:0px;">
+							<ul id="content"></ul>
+						</div>
+						<div class="chat-bottom">
+							<div class="bottom clearfix btnfun">
+								<el-button type="primary" round @click="dubiousAdd(chatId)">添加</el-button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="http://wapx.bothlive.com/page/js/jquery-3.1.1.min.js"></script>
+		<script src="http://img.bothlive.com/wspush.js"></script>
+		<script src="http://wapx.bothlive.com/page/js/vue.js"></script>	
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>	
+		<script>
+			Array.prototype.indexOf = function (val) {
+			    for (var i = 0; i < this.length; i++) {
+			        if (this[i] == val) return i;
+			    }
+			    return -1;
+			};
+			
+			Array.prototype.remove = function (val) {
+			    var index = this.indexOf(val);
+			    if (index > -1) {
+			        this.splice(index, 1);
+			    }
+			};
+			var vm=new Vue({
+				el:"#listdata",
+				data:{
+					currentDate: new Date(),
+					dubiousList:[],
+					alllist:[],
+					curlist:[],  //当前页列表
+					dialogVisible: false,
+					total:0,
+					curpage:1,
+					pagesize:20,
+					chatName: '',
+					chatId:"",
+					roomurl:"",
+					videourl:"",
+					obj:{},
+					flvPlayer:"",
+					wsclient: null
+				},
+				created(){
+					var _this=this;
+					this.getlist();
+					this.wsclient = new Wspush();
+					this.wsclient.setMessageCallback(this.getMessage);
+					this.wsclient.load();
+				},
+				mounted(){
+					var dubList = JSON.parse(window.localStorage.getItem('dubiousList'));
+					if(dubList){
+						this.dubiousList = dubList
+					}
+				},
+				methods:{
+					getlist(){
+						var _this=this;
+						$.ajax({
+							url:"http://m.api.bothlive.com/anchor/alllist/?pageno="+_this.curpage + "&pagenum=" + _this.pagesize,
+							type : 'get',				
+							data: '', 
+							xhrFields: {
+								withCredentials: true
+							},
+							success:function(res) {
+								console.log('直播间在线主播信息', res);
+								_this.curlist = res.data.items;
+								_this.total = res.data.total;
+							},  
+						});
+					},
+					openvideo(id){
+						var _this=this;
+						_this.dialogVisible=true;
+						var urlc ='?__guid=md5&uid=-1&__plat=h5&__version=1.0&channel=h5';
+						var darr = {
+							hostid: id,
+						}
+						$.ajax({
+							url:"http://m.api.bothlive.com/room/baseinfo"+urlc,
+							type : 'get',				
+							data: darr, 
+							xhrFields: {
+								withCredentials: true
+							},
+							success:function(res) {
+								console.log('进直播间获取房间信息', res);
+								_this.chatName = res.data.hostinfo.nick;
+								_this.chatId = res.data.hostinfo.uid;
+								_this.roomurl = 'chatlive.html?hid='+_this.chatId;
+								_this.wsclient.send(`{"type":"up","action":"intoroom","body":"${_this.chatId}"}`);
+								$('#content').find("li").remove()
+							},  
+						});
+					},
+					closevideo(){
+						this.dialogVisible=false;
+						 var obj=window.frames["mainFrame"];
+						 obj.document.body.innerHTML = "";
+					},
+					dubiousAdd(id){
+						console.log('可疑主播：', this.dubiousList.length);
+						if(this.dubiousList.length>5){
+							this.open();
+							
+						}else{
+							this.dubiousList.push(id);
+							window.localStorage.setItem('dubiousList', JSON.stringify(this.dubiousList));
+						}
+						
+						
+					},
+					open() {
+						//this.$message("可疑主播数量超过10个，请删除后在添加！");
+						this.$message({
+						          showClose: true,
+						          message: '可疑主播数量超过6个，请删除后在添加！',
+						          type: 'warning'
+						        });
+					},
+					openmuitl(){
+						window.open('muiti.html');
+					},
+					dubiousClose(id){
+						this.dubiousList.remove(id);
+						window.localStorage.setItem('dubiousList', JSON.stringify(this.dubiousList));
+					},
+					refreshdata(){
+						this.curpage=1;
+						this.getlist();
+					},
+					handleCurrentChange(pageno){
+						this.getlist();
+					},
+					getMessage(data){
+						try{
+							var data = JSON.parse(data);
+							if(data && data.type && data.type=="room" && (data.action=="chmsg" || data.action=="floatingmsg")){
+								var body = JSON.parse(data.body);
+								var contentbox = document.getElementById("content");
+								var span = document.createElement("span");
+						        var li = document.createElement("li");
+						        span.innerHTML = body.from.nick + "：" + body.msg;
+						        li.appendChild(span);
+						        contentbox.appendChild(li);
+								contentbox.scrollTop = contentbox.scrollHeight;
+							}
+						}catch(e){
+
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,426 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BothLiveBL</title>
+<meta name="keywords" content="BothLivekey">
+<meta name="description" content="BothLivedes">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+<link rel="stylesheet" href="../css/main.css?v20181229" />
+<link rel="stylesheet" href="../css/index.css?v20181229" />
+<link rel="stylesheet" href="../css/css.css?v20181229" />
+<style type=text/css>
+	[v-cloak]{
+		display: none;
+	}
+html{ SCROLLBAR-FACE-COLOR: #538ec6; SCROLLBAR-HIGHLIGHT-COLOR: #dce5f0; SCROLLBAR-SHADOW-COLOR: #2c6daa; SCROLLBAR-3DLIGHT-COLOR: #dce5f0; SCROLLBAR-ARROW-COLOR: #2c6daa;  SCROLLBAR-TRACK-COLOR: #dce5f0;  SCROLLBAR-DARKSHADOW-COLOR: #dce5f0; overflow-x:hidden;}
+body{overflow-x:hidden; margin: 0;background: #dcdcdc;}
+.title-img {
+    width: 100%;
+    background: #ef3535;
+}
+.user-info {
+    background: #FBE9D2;
+	padding: 0 5px;
+	overflow: hidden;
+}
+img.user-ioon-img {
+    width: 50px;
+    border-radius: 50%;
+}
+.user-content {
+    float: left;
+    margin: 3px 0 5px 10px;
+    color: #333;
+}
+.user-icon {
+    float: left;
+}
+.user-uid {
+    font-size: 14px;
+    color: #838383;
+}
+.user-nick {
+    font-size: 18px;
+}
+iframe#loginPage {
+    display: none;
+}
+.user-chat-list {
+    overflow: auto;
+}
+::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+background-color:#f8f8f8;
+}
+::-webkit-scrollbar {//滚动条的宽度
+width:3px;
+height:5px;
+}
+::-webkit-scrollbar-thumb {//滚动条的设置
+background-color:#dddddd;
+background-clip:padding-box;
+min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+background-color:#bbb;
+}
+.chat-info {
+    float: right;
+}
+.chat-name {
+    float: left;
+    line-height: 40px;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 15px;
+}
+img.user-in-img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.chat-contents {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+.chat-img {
+    float: left;
+    margin: 10px 20px 10px 0;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid #ef3535;
+    width: 170px;
+    height: 170px;
+}
+.chat-refresh{
+    float: left;
+    margin-right: 15px;
+    padding: 12px 0;
+}
+.chat-content {
+    float: left;
+    margin: 10px;
+}
+.chat-font.chat-i {
+    font-size: 20px;
+    color: #333;
+}
+.chat-i span {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+.chat-id{
+	font-size: 14px;
+	color: #8C8C8C;
+}
+.chat-font {
+    margin: 10px 0;
+}
+.chat_div {
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+	overflow-y: auto;
+}
+img.main-vat.chat_send_icon {
+    width: 113px;
+	height: 53px;
+    margin: 20px;
+}
+.chat-textarea{
+	    width: 85%;
+	    height: 70px;
+	    border: 1px solid rgb(212, 207, 207);
+	    margin: 10px 0px;
+	    padding: 3px 5px;
+}
+/*整体部分*/ 
+::-webkit-scrollbar
+{
+	width: 5px;
+	height: 10px;
+}
+/*滑动轨道*/ 
+::-webkit-scrollbar-track
+{
+	border-radius: 0px;
+	background: none;
+}
+/*滑块*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(255,255,255,.75)
+}
+/*滑块效果*/ 
+::-webkit-scrollbar-thumb:hover
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: rgba(85, 85, 85, 0.4);
+}
+img.user-exit-img {
+    width: 20px;
+    margin: 10px 0;
+}
+.user-chat {
+    overflow-y: scroll;
+}
+.home-title {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+}
+li.main-box.online_dynam_li {
+	border-bottom: 10px solid #eaeaea;
+}
+.dy-right {
+    float: right;
+    margin: 0px 20px 0;
+}
+.dy-bottom {
+    float: left;
+    margin: 10px;
+    vertical-align: middle;
+    padding: 0px 20px;
+    height: 35px;
+    line-height: 31px;
+    border-radius: 50px;
+    text-align: position;
+	cursor:pointer;
+}
+.dy-bottom img {
+    width: 20px;
+    vertical-align: middle;
+}
+.dy-bottom span {
+    font-size: 15px;
+    color: #fff;
+    vertical-align: middle;
+}
+.dy-f-bg {
+    background-color: #F6D131;
+    background-image: linear-gradient(to right, #F6D131 , #F7A915);
+}
+.dy-c-bg {
+    background-color: #61ece5;
+    background-image: linear-gradient(to right, #61ece5 , #32d4fa);
+}
+.dy-fy-bg{
+	background-color: #F6F6F6;
+	background-image: linear-gradient(to right, #F6F6F6 , #F6F6F6);
+}
+.online_dynam_btns {
+    border-bottom: 1px solid #d1d1d1;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.dynamic_zan {
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+li.main-box.dynamic_li {
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 10px;
+}
+.online_dynam_img {
+    max-width: 600px;
+}
+span.mood-left img {
+    width: 25px;
+    margin: 5px;
+	cursor: pointer;
+}
+div#mood_bar {
+    position: relative;
+}
+</style>
+</head>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
+	<div id="listT" v-cloak class="main-box">
+		<div class="title-img" style="height: 40px;">
+			<div class="chat-name"></div>
+			<div class="chat-name"><img :src="Info.avatar" class="user-in-img" onerror="this.src='../../page/img/public/default.png'"></div>
+			<div class="chat-name">{{ adminLang.InfoNick }}：{{ Info.nick }}</div>
+			<div class="chat-name">ID:{{ Info.uid }}</div>
+			<div class="chat-info">
+				<div class="chat-refresh"><i class="el-icon-refresh"></i></div> 
+				<div class="chat-name" @click="signExit()"><img src="../img/sign_out_exit.png" class="user-exit-img"></div>
+			</div>
+		</div>
+		<div  class="user-chat" :style="'height:' + height + 'px'">
+			<div class="online_t2">
+				<div class="chat-contents">
+					<div class="mood">
+						<div class="mood_caption"><em class="mood_edit"></em>{{ adminLang.Infofollows }}</div>
+						<div class="mood_textarea_outer">
+							<textarea v-model="dyContent" class="mood_textarea" id="mood_textarea" :placeholder="adminLang.dyplaceholder"></textarea>
+						</div>
+						<div id="mood_bar" class="mood_bar">
+							<span class="mood-left emotion" @click="emoteOpen()"><img src="../img/b_04.png" ></span>
+							<div v-show="emoteShow" class="emote-bg">
+								<div class="emote-li" v-for="(value, key, index) in emoteList">
+									<img @click="emoteSend(key)" :src="'drawable/'+value"  class="emote-img"/>
+								</div>
+							</div>
+							<span class="mood-left upimg"><img src="../img/b_01.png" ></span>
+							<div id="mood_btn_enter" class="mood_enter" @click="dynamicAdd()">{{ adminLang.Publish }}</div>
+						</div>
+					</div>
+				</div>	
+				<div class="chat-contents">
+					<div class="home-title">{{ adminLang.dytitle }}</div>
+					<div class="main-box">
+						<!--如果是个人主页 显示发布动态-->
+						<div v-if="isOneSelf" class="main-box main-flex main-aic home_dynam_search" @click="tapSendDynamic()">
+							<img class="home_dynam_lf" src="../../page/img/home/d_02.png"/>
+							<p class="main-box main-f1 home_dynam_input">{{interLang.chattxt}}</p>
+							<img class="home_dynam_rt" src="../../page/img/home/d_01.png"/>
+						</div>
+						
+						<!--列表为空时-->
+						<div v-if="dynamicList.length == 0" class="main-box main-tac list_none main-box-img">
+							<img src="../../page/img/giftd/dynamic@2x.png">
+							<p>{{ interLang.dynamicno }}</p>
+						</div>
+						<!--列表-->
+						<ul id="increaseHeight" class="main-box slide_height online_dynam_list">
+							<li class="main-box online_dynam_li" v-for="(item,key) in dynamicList">
+								<div class="main-box main-bg online_dynam_content">
+									<!--用户信息-->
+									<div class="main-block">
+										<div class="main-box main-flex main-aic main-relative" style="border-bottom: 1px solid #d1d1d1;padding: 10px 0;">
+											
+											<img class="online_dynam_head" :src="item.uinfo.avatar" onerror="this.src='../../page/img/public/default.png'"/>
+											<div class="main-box main-f1 online_dynam_rt" >
+												<p class="main-box online_dynam_name">{{ item.uinfo.nick }}</p>
+												<p class="main-box online_dynam_time">{{ item.addtime }}</p>
+											</div>
+											<!--<img class="online_dynam_more" onClick="dynamicItem(this)" :data-id="item.id" src="img/online/icon_more.png"/>-->
+											 <div class="dy-right">
+												 <div v-if="item.is_follow==0" class="dy-bottom dy-f-bg" @click="tapFollow(item.uid)">
+													 <img src="../img/icon_f1.png" style="width: 15px;"/>
+													 <span>{{ adminLang.Infofollows }}</span>
+												 </div>
+												 <div v-else class="dy-bottom dy-fy-bg" @click="tapHideFollow(item.uid)" >
+													 <img src="../img/icon_f2.png" style="width: 15px;"/>
+													 <span style="color: #A8A8A8;">{{ adminLang.yesfollows }}</span>
+												 </div>
+																		
+												 <div class="dy-bottom dy-c-bg" @click="tapChat(item.uid)">
+													 <img src="../img/Homepagechat.png" />
+													 <span>{{ adminLang.privateMessage }}</span>
+												 </div>
+											 </div>
+										</div>
+									</div>
+									<!--内容区-->
+									<div class="main-box">
+										<p class="main-box online_dynam_t1" v-html='item.text'>{{ item.text }}</p>
+										<p v-show="item.text" class="main-box online_dynam_t2" >{{ item.translate }}</p>
+										<!--如果有文字时才显示翻译按钮-->
+										<div v-show="item.text" class="main-box">
+											<!--查看翻译-->
+											<div v-if="item.isTranslate == false" class="main-box online_dynam_look">
+												<span @click="tapLookTranslate(key)">{{ adminLang.lookTranslation }}</span>
+											</div>
+											<!--语言设置-->
+											<div v-else-if="item.isTranslate" class="main-box online_dynam_look">
+												<span @click="tapLangSetting()">{{ adminLang.langSetting }}</span>
+											</div>
+										</div>
+										<div v-if="item.img.length == 1" class="main-box online_dynam_img" >
+												<img v-for="itemimg in item.img" class="main-vat" style="max-width: 500px;" :src="itemimg.simg" :onerror="profileImg"/>
+											</div>
+											<div v-else-if="item.img.length == 2" class="main-box online_dynam_img" >
+												<img v-for="itemimg in item.img" class="main-vat img-left" :style="'height:' + imgH1 + 'px;'" :src="itemimg.simg" :onerror="profileImg"/>
+											</div>
+											<div v-else class="main-box online_dynam_img" >
+												<img v-for="itemimg in item.img" class="main-vat img-left"  :style="'height:' + imgH1 + 'px;'" :src="itemimg.simg" :onerror="profileImg"/>
+											</div>
+										
+									</div>
+									
+									<!--按钮组-->
+									<div class="main-box main-flex main-aic online_dynam_btns">
+										
+										<div  class="main-box main-f1 main-flex">
+											<!--图片-->
+											<div v-if="item.like == 1" class="main-box online_dynam_zan" >
+												<img  class="main-va" src="../../page/img/online/Noticelike1.png"/>
+												<span class="main-va">{{ item.likenum }}</span>
+											</div>
+											<div v-else class="main-box online_dynam_zan" @click="tapSnap(item.id,key)">
+												<img class="main-va" src="../../page/img/online/icon_zan.png"/>
+												<span v-show="item.likenum!=0" class="main-va">{{ item.likenum }}</span>
+											</div>
+											<div class="main-box online_dynam_ping"  @click="tapcomment(item.id,key)">
+												<img class="main-va" src="../../page/img/online/icon_ping.png"/>
+												<span v-show="item.comnum!=0" class="main-va">{{ item.comnum }}</span>
+											</div>
+											
+										</div>
+									</div>
+									
+									<!--点赞列表-->
+									<div v-show="item.likenum!=0" class="main-box dynamic_zan">
+										<img class="main-va notice_zan_icon" src="../../page/img/news/icon_zan.png"/>
+										<span class="main-va notice_zan_t1" v-for="iteml in item.likelist"> {{ iteml.nick }},  </span>
+										
+									</div>
+									<!--评论列表-->
+									<ul v-show="item.comnum!=0" class="main-box">
+										<li class="main-box dynamic_li" v-for="(itemc,k) in item.commentList">
+											<!--用户信息-->
+											<div class="main-box main-flex main-aic main-relative">
+												<img class="dynamic_head" :src="itemc.uinfo.avatar" onerror="this.src='../../page/img/public/default.png'"/>
+												<div class="main-box main-f1 online_dynam_rt">
+													<p class="main-box dynamic_name">{{ itemc.uinfo.nick }}</p>
+													<p class="main-box dynamic_time">{{ itemc.addtime }}</p>
+												</div>
+												<img class="dynamic_icon" @click="tapEnterOther(item.id,itemc.uid,key,itemc.uinfo.nick)" src="../../page/img/news/d_01.png"/>
+											</div>
+											<!--评论内容-->
+											<div class="main-box">
+												<!--评论-->
+												<p class="main-box dynamic_answer">
+													<span v-show="itemc.replyid!==item.uid" class="dynamic_t1">{{ interLang.reply }}<span style="color: rgb(255, 80, 80);font-size: 14px;margin: 0 5px;">{{itemc.replyName}}:</span></span><span class="dynamic_t1">{{ itemc.text }}</span>
+												</p>
+												<!--评论翻译-->
+												<p class="main-box main-hide dynamic_translate">{{ itemc.translate }}</p>
+												
+												
+											</div>
+										</li>
+									</ul>
+									
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>	
+	<script src="../js/lang-zhu.js?v20200407"></script>
+	<script src="../js/lang.js"></script>
+	<script src="../js/app.js?vfcxcf"></script>	
+	<script src="js/emote.js?v20200403dd"></script>
+	<script src="js/list.js?cgtg"></script>
+</body>
+</html>

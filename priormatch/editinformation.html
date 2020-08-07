@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>PrioMatch</title>
+		<meta name="keywords" content="PrioMatch">
+		<meta name="description" content="PrioMatch">
+		<!--<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />-->
+		<link rel="stylesheet" href="page/css/main.css?vf293" />
+		<link rel="stylesheet" href="page/css/index.css?d34" />
+		<link rel="stylesheet" href="css/login.css?v20191129ss" />
+		<link rel="stylesheet" href="page/css/cropper.css">
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="editinfo" v-cloak class="main-box  body-bg">
+			<header id="header" ></header>
+			<div class="edit-bg">
+				<div class="main-flex main-aic main-mob edit-p">
+					<div class="editinfo-img edit_photo">
+						<input type='file' id='PhotoF'>
+						<img id="phone_ok" src="image/moren@2x.png" class="edit-moren">
+					</div>
+						<img src="image/edit_Photo@2x.png" class="edit-Photo">
+				</div>
+				<div class="main-aic main-mob">
+					<div class="editinfo-text">{{ editinfofont }}</div>
+				</div>
+				
+				<div class="main-bg main-border">
+					<div class="main-flex main-aic main-mob ">
+						<input class="main-f1 main-hg login_mobiles login-inputs " maxlength="12" type="text" v-model="nameUser"  @input="tapMobile()" autofocus="autofocus" :placeholder="interLang.dpAdd3"/>
+						
+					</div>
+					<div class="main-edit">
+						<div class="edit-color login-vf-size">{{ interLang.dpAdd4 }}</div>
+						<div class="edit-right login-vf-size">{{ nameNumber }}/12</div>
+					</div>
+					<div class="main-flex main-aic main-mob">
+						<input  id="birth" class="main-f1 main-hg login_mobiles login-inputs" type="text" v-model="age" readonly="readonly" :placeholder="interLang.dpAdd5"/>
+						<div class="edit-icon-right">
+							<img src="page/img/icon_right.png" class="login-r-img">
+						</div>
+					</div>
+					<div class="main-flex main-aic main-mob" @click="tapgender()">
+						<input id="gendertxt" class="main-f1 main-hg login_mobiles login-inputs" type="text" v-model="gendertxt" readonly="readonly" :placeholder="interLang.dpAdd6"/>
+						<div class="edit-icon-right">
+							<img src="page/img/icon_right.png" class="login-r-img">
+						</div>
+					</div>
+					<div class="main-edit">
+						<div class="edit-color login-vf-size">{{ interLang.dpAdd7 }}</div>
+					</div>
+					<div class="login-bottom">
+						<div class="login-font" @click="checkPass()">
+							{{loginBotton}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--确定裁剪-->
+		<div id="container_div" class="container-botton" style="display: none;">
+			<div class="container-top">
+				<input class="js-no" type="image" name="imageNo" src="image/clase.png">
+				<input class="js-ok" type="image" name="imageYes" src="image/ok.png">
+			</div>
+			<div class="container js-container fullheight">	
+				<img class="js-image hidden" src="" style="max-width:100%;height:auto">
+			</div>
+		 </div>
+		<script src="page/js/jquery-3.1.1.min.js"></script>
+		<script src="page/js/jquery.selector.js?v20181226xd"></script>
+		<script src="page/js/cropper.js"></script>
+		<script src="page/js/exif.js"></script>
+		<script src="page/js/vue.js"></script>
+		<script src="page/js/lang-zhu.js?v20191227"></script>
+		<script src="js/app.js?v20191129ss"></script>
+		<script src="js/editinformation.js?v20191227"></script>
+	</body>
+</html>

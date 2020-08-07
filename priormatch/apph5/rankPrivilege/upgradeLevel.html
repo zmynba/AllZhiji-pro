@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/main.css?v20200612">
+    <script>
+        document.write("<link rel='stylesheet' href='css/index.css?v="+ parseInt((Math.random() + 1) * (Math.pow(10, 8))) +"'><\/link>");
+    </script>
+    <title>Loading</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="upgradeLevel" v-cloak>
+        <!-- 头部 -->
+        <header class="privil_heads">
+            <div class="main-bg main-w10 privil_top">
+                <p class="main-tac privil_md">{{ interLang.upgradeLevel }}</p>
+                <img class="privil_back" @click="tapBack" src="img/icon_back.png" alt="Back">
+            </div>
+            <!--TAB头部-->
+            <div class="advance_top">
+                <div class="main-w10 main-flex main-aic main-bg advance_tab">
+                    <div class="main-f1 main-tac main-relative" @click="tapTabs(0)">
+                        <div class="main-inline">
+                            <span class="advance_li" :class="{ advance_active: tabId == 1 }">{{ interLang.wealth }}</span>
+                        </div>
+                        <p v-show="tabId == 1" class="main-w10 advance_xian"></p>
+                    </div>
+                    <div class="main-f1 main-tac main-relative" @click="tapTabs(1)">
+                        <div class="main-inline">
+                            <span class="advance_li" :class="{ advance_active: tabId == 2 }">{{ interLang.charm }}</span>
+                        </div>
+                        <p v-show="tabId == 2" class="main-w10 advance_xian"></p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- 主体 -->
+        <div class="main-relative grade" :style="{ height: (bodyH - 150) + 'px' }">
+            <!--滑动部分-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper" :style="{ minHeight: swiperH + 'px' }">
+                    <!--财富-->
+                    <div class="swiper-slide">
+                        <div class="main-relative">
+                            <img class="main-w10 main-vat" src="img/bg_01.png"/>
+                            <div class="main-w10 main-hg main-flex main-aic advance_title">
+                                <p>{{ interLang.dailyAddPoints }}</p>
+                            </div>
+                        </div>
+                        
+                        <!--表格-->
+                        <div class="advance_content">
+                            <!-- 头部 -->
+                            <div class="main-flex main-aic advance_up">
+                                <p class="main-f1 advance_txt">{{ interLang.addPoints }}</p>
+                                <p class="main-f1 advance_txt">{{ interLang.empiricalValue }}</p>
+                            </div>
+                            <!-- 列表 -->
+                            <ul class="advance_list">
+                                <li class="main-flex main-aic main-bg advance_down" v-for="item in wealthList">
+                                    <div class="main-f1 advance_txt2">{{ item.title }}</div>
+                                    <div class="main-f1 advance_rt">
+                                        <span class="advance_txt3">+{{ item.money }}</span>
+                                        <span class="advance_txt4">{{ item.remark }}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="main-relative">
+                            <img class="main-w10 main-vat" src="img/bg_02.png"/>
+                            <div class="main-w10 main-hg main-flex main-aic index_pl index_pr advance_title">
+                                <p class="main-f1">{{ interLang.vipSpeed }}</p>
+                                <a href="javascript:;" @click="tapLookVipPrivilege">{{ interLang.vipLook }}</a>
+                            </div>
+                        </div>
+                        
+                        <div class="main-flex main-aic advance_btn">
+                            <p class="main-f1">{{ interLang.extraNum }}</p>
+                            <a href="javascript:;" @click="tapGoSpeed">{{ interLang.goSpeed }}</a>
+                        </div>
+                    </div>
+                    
+                    <!--魅力-->
+                    <div class="swiper-slide">
+                        <div class="main-relative">
+                            <img class="main-w10 main-vat" src="img/bg_03.png"/>
+                            <div class="main-w10 main-hg main-flex main-aic index_pl index_pr advance_title">
+                                <p>{{ interLang.dailyAddPoints }}</p>
+                            </div>
+                        </div>
+                        
+                        <!--表格-->
+                        <div class="advance_content">
+                            <!-- 头部 -->
+                            <div class="main-flex main-aic advance_up">
+                                <p class="main-f1 advance_txt">{{ interLang.addPoints }}</p>
+                                <p class="main-f1 advance_txt">{{ interLang.empiricalValue }}</p>
+                            </div>
+                            <!-- 列表 -->
+                            <ul class="advance_list">
+                                <li class="main-flex main-aic main-bg advance_down" v-for="item in charmList">
+                                    <div class="main-f1 advance_txt2">{{ item.title }}</div>
+                                    <div class="main-f1 advance_rt">
+                                        <span class="advance_txt5">+{{ item.money }}</span>
+                                        <span class="advance_txt4">{{ item.remark }}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        if ((navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i))) {
+            document.write("<script src='cordova_bothlive/cordova.js?v20200316'><\/script>");
+        }
+    </script>
+    <script src="js/swiper.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/lang.js?v20200616"></script>
+    <script src="js/app.js?v20200612"></script>
+    <script>
+        document.write("<script src='js/upgradeLevel.js?v="+ parseInt((Math.random() + 1) * (Math.pow(10, 8))) +"'><\/script>");
+    </script>
+</body>
+</html>

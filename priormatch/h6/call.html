@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title></title>
+ <style type="text/css">	
+		.layout {
+			position: absolute;
+			top: 40%;
+			left: 40%;
+			width: 20%;
+			height: 20%;
+			z-index: 1001;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+<div id="layout" class="layout"><img src="o_31.gif" style="width:100%;"/></div>
+<script>
+/**
+var loadJs = function(d, id, url, o) {
+	if(!d.getElementById(id)) {
+		var fjs = d.getElementsByTagName("script")[0];
+		var js = d.createElement("script");
+		for(var p in o) {
+			js.setAttribute(p, o[p]);
+		}
+		js.type = "text/javascript";
+		js.async = true;
+		js.id = id;
+		js.src = url;
+		fjs.parentNode.insertBefore(js, fjs);
+	}
+};
+//清除所有cookie函数
+function clearAllCookie() {
+	var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+	if(keys) {
+		for(var i = keys.length; i--;)
+			document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+	}
+}
+loadJs(document, "fb-sdk", "https://connect.facebook.net/en_US/sdk.js");
+var startFb = function() {
+	FB.init({
+		appId: '450876385474679',
+		xfbml: true,
+		version: 'v3.2',
+		status: true
+	});
+	FB.getLoginStatus(function(response) {
+		console.log(response);
+		var reslog = JSON.stringify(response);
+		var getInfo = function() {
+			FB.api('/me', {
+				fields: 'id,name,email,gender,birthday,first_name,last_name'
+			}, function(response) {
+				console.log(response);
+				str="facebook"+JSON.stringify(response);
+				document.write(str);
+				BLJsBridge.post(str);
+			});
+		};
+		var login = function() {
+			//location.href = "https://dwz.cn/RVimzw8s";
+			//document.write("login");
+			location.href = "https://m.facebook.com/login.php?skip_api_login=1&api_key=450876385474679&kid_directed_site=0&app_id=450876385474679&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv3.2%2Fdialog%2Foauth%3Fapp_id%3D450876385474679%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fconnect%252Fxd_arbiter.php%253Fversion%253D44%2523cb%253Df3ccc110d3a9458%2526domain%253Dwap.bothlive.com%2526origin%253Dhttps%25253A%25252F%25252Fwap.bothlive.com%25252Ff1fc39b98408ba4%2526relation%253Dopener%26client_id%3D450876385474679%26display%3Dtouch%26domain%3Dwap.bothlive.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwap.bothlive.com%252Fpage%252Fh6%252Fcall.html%26locale%3Den_US%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fconnect%252Fxd_arbiter.php%253Fversion%253D44%2523cb%253Df2bf27329cadc34%2526domain%253Dwap.bothlive.com%2526origin%253Dhttps%25253A%25252F%25252Fwap.bothlive.com%25252Ff1fc39b98408ba4%2526relation%253Dopener%2526frame%253Df2fa9265f";
+		}
+		if (response.status === 'connected') {
+			document.getElementById('status').innerHTML = 'We are connected.';
+			getInfo();
+		} else if (response.status === 'not_authorized') {
+			document.getElementById('status').innerHTML = 'We are not logged in.'
+			login();
+		} else {
+			document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+			//FB.login(getInfo);
+			clearAllCookie();
+			login();
+			//getInfo();
+		}	
+		
+	}, true);
+};
+if(window.fbAsyncInit) {
+	startFb();
+} else {
+	window.fbAsyncInit = startFb;
+}
+
+ ***/
+</script>
+<div id="status"></div>
+</body>
+</html>

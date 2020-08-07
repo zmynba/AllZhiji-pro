@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>PrioMatch</title>
+		<meta name="keywords" content="PrioMatch">
+		<meta name="description" content="PrioMatch">
+		<!--<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />-->
+		<link rel="stylesheet" href="page/css/main.css?vf293" />
+		<link rel="stylesheet" href="page/css/index.css?d34" />
+		<link rel="stylesheet" href="css/login.css?432d" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="login" v-cloak class="main-box"  >
+			<header id="header" style="height: 50px;">
+				<div class="main-box main-flex main-aic head" style="background: rgb(255, 255, 255);">
+					<div class="main-box head_lf" onclick="window.history.go(-1);">
+						<img src="page/img/public/icon_back.png" class="head_back">
+					</div>
+					<div class="main-box main-f1 main-tac main-ellipsis head_md" style="font-weight: normal; font-size: 16px; color: rgb(51, 51, 51); opacity: 1;">{{countryFont}}</div>
+					<div class="main-box head_rt"></div>
+				</div>
+			</header>
+			<!--主体-->
+				<div class="main-bg index_pl index_mt index_right">
+					<div class="main-bb" v-for="item in list" >
+						<p class="main-bb index_pr edit_feel" @click="tapChoose(item.code,item.country,item.country_code)">
+								{{ item.country }}
+								<img v-show="item.show == 1" src="page/img/home/select.png" class="country-sel">
+							
+						</p>
+					</div>
+				</div>
+		</div>
+		
+		<script src="page/js/jquery-3.1.1.min.js"></script>
+		<script src="page/js/vue.js"></script>
+		<script src="page/js/lang-zhu.js?v20191228"></script>
+		<script src="js/app.js?vbr96s"></script>
+		<script src="js/country.js?v20191288"></script>
+	</body>
+</html>

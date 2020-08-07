@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BothLiveBL</title>
+		<meta name="keywords" content="BothLivekey">
+		<meta name="description" content="BothLivedes">
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+			.looklist{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.card-container{
+				margin-bottom: 10px;
+				position: relative;
+			}
+			.el-card__body{
+				padding:0;
+			}
+			.pagination-row{
+				margin-top: 30px;
+			}
+			.time {
+			  font-size: 13px;
+			  color: #999;
+			}
+			
+			.bottom {
+			  margin-top: 13px;
+			  line-height: 12px;
+			}
+		  
+			.button {
+			  padding: 0;
+			  float: right;
+			}
+		  
+			.image {
+			  width: 100%;
+			  display: block;
+			}
+			.img-container{
+				width: 100%;
+				height: 250px;
+			}
+			.clearfix:before,
+			.clearfix:after {
+				display: table;
+				content: "";
+			}
+			
+			.clearfix:after {
+				clear: both
+			}
+			.btnfun{
+				text-align: center;
+			}
+			.card-title{
+				text-align: center;
+			}
+			.card-id{
+				position: absolute;
+				top: 10px;
+				left: 20px;
+				color: #e2e2e2;
+				font-size: 14px;
+			}
+			.layer-container{
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				background: rgba(0, 0, 0, 0.6);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: 0;
+    			left: 0;
+			}
+			.video-container{
+				
+				background: #fff;
+				border-radius: 10px;
+				padding:20px;
+			}
+			.video-title{
+				color: #333;
+				font-size: 16px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="looklist" id="listdata" v-cloak>
+			<el-button type="primary" round icon="el-icon-refresh" @click="refreshdata">刷新</el-button>
+			<el-divider></el-divider>
+			<el-container direction="vertical">
+				<el-row :gutter="20">
+					<el-col :span="6" v-for="(item, index) in curlist" :key="index" class="card-container">
+					  <el-card>
+						<el-image
+						style="width: 100%; height: 180px;"
+						:src="item.photo"
+						fit="cover">
+						</el-image>
+						<div style="padding: 14px;">
+						  <div class="card-title">{{item.title?item.title:'暂无数据'}}</div>
+						  <div class="bottom clearfix btnfun">
+							<el-button type="success" round @click="openvideo(item)">播放</el-button>
+							<el-button type="primary" round>添加</el-button>
+						  </div>
+						</div>
+					  </el-card>
+					  <div class="card-id">ID:{{item.uid}}</div>
+					</el-col>
+				</el-row>
+				
+				<el-row class="pagination-row">
+					<el-pagination
+					background
+					layout="prev, pager, next"
+					@current-change="handleCurrentChange"
+					:current-page.sync="curpage"
+					:page-size="pagesize"
+					:total="total">
+					</el-pagination>
+				</el-row>
+			</el-container>
+
+			<!-- 播放弹窗 -->
+			<!-- <el-dialog
+			title="提示"
+			:visible.sync="dialogVisible"
+			width="30%"
+			:before-close="handleClose">
+			<div class="video-container">
+				<video id="videoElement"></video>
+			</div>
+			</el-dialog> -->
+			<div class="layer-container" v-show="dialogVisible" @click="closevideo">
+				<div class="video-container" @click.stop="">
+					<div class="video-title">样例demo</div>
+					<video id="videoElement" height="400" controls="controls"></video>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../page/js/jquery-3.1.1.min.js"></script>
+		<script src="../page/js/vue.js"></script>	
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>	
+		<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+		<script>
+			var vm=new Vue({
+				el:"#listdata",
+				data:{
+					currentDate: new Date(),
+					alllist:[],
+					curlist:[],  //当前页列表
+					dialogVisible: false,
+					total:0,
+					curpage:1,
+					pagesize:4,
+					videourl:"",
+					obj:{},
+					flvPlayer:""
+				},
+				created(){
+					var _this=this;
+					this.getlist();
+				},
+				mounted(){
+					if (flvjs.isSupported()) {
+						var videoElement = document.getElementById('videoElement');
+						console.log(videoElement)
+						this.flvPlayer = flvjs.createPlayer({
+							type: 'ogg',
+							url: 'https://www.w3school.com.cn/i/movie.ogg'
+						});
+						this.flvPlayer.attachMediaElement(videoElement);
+					}
+				},
+				methods:{
+					getlist(){
+						var _this=this;
+						$.ajax({
+							url:"http://m.api.bothlive.com/anchor/alllist/",
+							type : 'get',				
+							data: '', 
+							xhrFields: {
+								withCredentials: true
+							},
+							success:function(res) {
+								console.log('直播间在线主播信息', res);
+								_this.alllist = res.data.items;
+								_this.total = res.data.total;
+								_this.handleCurrentChange(_this.curpage);
+							},  
+						});
+					},
+					openvideo(item){
+						this.dialogVisible=true;
+						this.obj=item;
+
+						this.flvPlayer.load();
+						this.flvPlayer.play();
+					},
+					closevideo(){
+						this.dialogVisible=false;
+						this.flvPlayer.pause();
+						this.flvPlayer.unload();
+					},
+					handleClose(done) {
+						this.flvPlayer.pause();
+						this.flvPlayer.unload();
+						done();
+					},
+					refreshdata(){
+						this.curpage=1;
+						this.getlist();
+					},
+					handleCurrentChange(e){
+						var index,length;
+						this.curlist=[];
+						index=(e-1)*this.pagesize;
+						length=(this.alllist.length-index)>this.pagesize?(index+this.pagesize):this.alllist.length
+						for(var i=index;i<length;i++){
+							console.log(111111)
+							this.curlist.push(this.alllist[i])
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

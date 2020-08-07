@@ -1,0 +1,1346 @@
+{
+	"emoteList": [
+		{
+			"id": "1",
+			"slideUrl": "img/chat/del_02.png",
+			"name": "表情图",
+			"list": [
+				{
+					"id": "1",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "2",
+					"title": "Grimace",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "3",
+					"title": "Grin",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "4",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "5",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "6",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "7",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "8",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "9",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "10",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "11",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "12",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "13",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "14",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "15",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "16",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "17",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "18",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "19",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "20",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "21",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "22",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_022.png"
+				},
+				{
+					"id": "23",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "24",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "25",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "26",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "27",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "28",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "29",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "30",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "31",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				},
+				{
+					"id": "32",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_02.png"
+				}
+			]
+		}
+	],
+	"emoteTie": [
+		{
+			"id": "2",
+			"slideUrl": "img/chat/del_01.png",
+			"name": "帽帽熊",
+			"list": [
+				{
+					"id": "101",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "102",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "103",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "104",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "105",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "106",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "107",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "108",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "109",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "110",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "111",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "112",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				},
+				{
+					"id": "113",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_01.png"
+				}
+			]
+		},
+		{
+			"id": "3",
+			"slideUrl": "img/chat/del_03.png",
+			"name": "牛逼",
+			"list": [
+				{
+					"id": "114",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "115",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "116",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "117",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "118",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "119",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "120",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "121",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "122",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				},
+				{
+					"id": "123",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_03.png"
+				}
+			]
+		},
+		{
+			"id": "4",
+			"slideUrl": "img/chat/del_04.png",
+			"name": "求求你了",
+			"list": [
+				{
+					"id": "124",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "125",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "126",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "127",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "128",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "129",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "130",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "131",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "132",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "133",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "134",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "135",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "136",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "137",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				},
+				{
+					"id": "138",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_04.png"
+				}
+			]
+		},
+		{
+			"id": "5",
+			"slideUrl": "img/chat/del_05.png",
+			"name": "好黑暗",
+			"list": [
+				{
+					"id": "139",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_05.png"
+				},
+				{
+					"id": "140",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_05.png"
+				},
+				{
+					"id": "141",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_05.png"
+				},
+				{
+					"id": "142",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_05.png"
+				},
+				{
+					"id": "143",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_05.png"
+				}
+			]
+		},
+		{
+			"id": "6",
+			"slideUrl": "img/chat/del_06.png",
+			"name": "寂寞哥",
+			"list": [
+				{
+					"id": "144",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_06.png"
+				},
+				{
+					"id": "145",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_06.png"
+				},
+				{
+					"id": "146",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_06.png"
+				},
+				{
+					"id": "147",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_06.png"
+				}
+			]
+		},
+		{
+			"id": "7",
+			"slideUrl": "img/chat/del_07.png",
+			"name": "卡通公鸡",
+			"list": [
+				{
+					"id": "148",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "149",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "150",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "151",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "152",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "153",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "154",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "155",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				},
+				{
+					"id": "156",
+					"title": "Smile",
+					"imgUrl": "img/chat/del_07.png"
+				}
+			]
+		}
+	],
+	"giftList": [
+		{
+			"type": "普通礼物",
+			"list": [
+				{
+					"id": "1",
+					"name": "Christmas",
+					"imgUrl": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/gift/santaclaus_first.png",
+					"price": "8800"
+				},
+				{
+					"id": "2",
+					"name": "Christmas tree",
+					"imgUrl": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/gift/christmastree_first.png",
+					"price": "500"
+				},
+				{
+					"id": "3",
+					"name": "南瓜灯",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/pumpkin_small_001.png",
+					"price": "199"
+				},
+				{
+					"id": "4",
+					"name": "蝙蝠",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/bat_small_001.png",
+					"price": "100"
+				},
+				{
+					"id": "5",
+					"name": "感恩杯",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/ganenbei.png",
+					"price": "50"
+				},
+				{
+					"id": "6",
+					"name": "花灯",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/lotus_small_001.png",
+					"price": "200"
+				},
+				{
+					"id": "7",
+					"name": "鲜花",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/meiguihua.png",
+					"price": "20"
+				},
+				{
+					"id": "8",
+					"name": "520",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/520.png",
+					"price": "300"
+				},
+				{
+					"id": "9",
+					"name": "许愿灯",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/lantern_small_001.png",
+					"price": "200"
+				},
+				{
+					"id": "10",
+					"name": "气球",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/balloon.png",
+					"price": "10"
+				},
+				{
+					"id": "11",
+					"name": "啤酒",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/beer.png",
+					"price": "20"
+				},
+				{
+					"id": "12",
+					"name": "玫瑰花",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/rose.png",
+					"price": "200"
+				},
+				{
+					"id": "13",
+					"name": "口红",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/lipstick.png",
+					"price": "100"
+				},
+				{
+					"id": "14",
+					"name": "吻",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/kissme.png",
+					"price": "20"
+				},
+				{
+					"id": "15",
+					"name": "桃花",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/huabanfen_smal.png",
+					"price": "30"
+				},
+				{
+					"id": "16",
+					"name": "水晶鞋",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/shuijingxiezi_small.png",
+					"price": "100"
+				}
+			]
+		},
+		{
+			"type": "高级礼物",
+			"list": [
+				{
+					"id": "17",
+					"name": "火鸡",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/huoji.png",
+					"price": "39999"
+				},
+				{
+					"id": "18",
+					"name": "团圆",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/zhongqiu_small_001.png",
+					"price": "1999"
+				},
+				{
+					"id": "19",
+					"name": "私人飞机",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/private_aircraft.png",
+					"price": "10000"
+				},
+				{
+					"id": "20",
+					"name": "烟花",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/yanhua_small.png",
+					"price": "1000"
+				},
+				{
+					"id": "21",
+					"name": "游轮",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/yachts.png",
+					"price": "8800"
+				},
+				{
+					"id": "22",
+					"name": "2018",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/2018_small.png",
+					"price": "2000"
+				},
+				{
+					"id": "23",
+					"name": "圣诞节",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/santaclaus_first.png",
+					"price": "8800"
+				},
+				{
+					"id": "24",
+					"name": "跑车",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/qiche.png",
+					"price": "10000"
+				},
+				{
+					"id": "25",
+					"name": "爱你哒",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/ainida3.png",
+					"price": "5200"
+				},
+				{
+					"id": "26",
+					"name": "吻屏",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/kiss.png",
+					"price": "2000"
+				},
+				{
+					"id": "27",
+					"name": "清凉一夏",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/icecream.png",
+					"price": "3800"
+				},
+				{
+					"id": "28",
+					"name": "嫁给我",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/jiageiwo3.png",
+					"price": "6600"
+				},
+				{
+					"id": "29",
+					"name": "婚礼",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/hunli7.png",
+					"price": "52000"
+				},
+				{
+					"id": "30",
+					"name": "飞机",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/zhanji.png",
+					"price": "9800"
+				},
+				{
+					"id": "31",
+					"name": "游轮",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/youting3.png",
+					"price": "6800"
+				},
+				{
+					"id": "32",
+					"name": "求婚",
+					"imgUrl": "http://alivod.xxshow.com/images/gift/qiuhun7.png",
+					"price": "131400"
+				}
+			]
+		}
+	],
+	"fansList": [
+		{
+			"id": "100104155",
+			"name": "Ami Duyên❤️",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100104155/20180827150546.png",
+			"sign": "Follow me😘阿美❤️",
+			"gender": "2",
+			"age": "25",
+			"isFollow": false,
+			"uLevel": "6",
+			"vLevel": "8",
+			"isLive": true,
+			"isChecked": "1",
+			"isLike": true,
+			"isAnchor": true
+		},
+		{
+			"id": "100105580",
+			"name": "Vam",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100105580/2018119145948.png",
+			"sign": "Lan cẩm sụt",
+			"gender": "2",
+			"age": "22",
+			"isFollow": true,
+			"country": "Vietnam",
+			"vLevel": "20",
+			"isLive": true,
+			"isChecked": "0",
+			"isLike": false,
+			"isAnchor": true
+		},
+		{
+			"id": "100114567",
+			"name": "Sơn",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100114567/20181016000235.png",
+			"sign": "Idol này vẫn chưa ký tên",
+			"gender": "1",
+			"age": "28",
+			"isFollow": false,
+			"uLevel": "12",
+			"country": "China",
+			"isLive": false,
+			"isChecked": "1",
+			"isLike": false,
+			"isAnchor": true
+		},
+		{
+			"id": "100096935",
+			"name": "九天揽月",
+			"imgUrl": "http://alivod.xxshow.com/images/icon/100096935/2018087101902.png",
+			"sign": "啦啦啦啦啦啦啦啦啦啦啦",
+			"gender": "1",
+			"age": "26",
+			"isFollow": false,
+			"uLevel": "25",
+			"country": "China",
+			"isChecked": "1",
+			"isLike": false,
+			"isAnchor": false
+		}
+	],
+	"openLangList": [
+		{
+			"name": "vip",
+			"list": [
+				{
+					"id": "1",
+					"title": "vip",
+					"time": "1",
+					"price": "9.99",
+					"isOpen": false
+				},
+				{
+					"id": "2",
+					"title": "vip",
+					"time": "3",
+					"price": "19.99",
+					"isOpen": false
+				},
+				{
+					"id": "3",
+					"title": "vip",
+					"time": "6",
+					"price": "55.99",
+					"isOpen": false
+				},
+				{
+					"id": "4",
+					"title": "vip",
+					"time": "12",
+					"price": "99.99",
+					"isOpen": false
+				}
+			]
+		},
+		{
+			"name": "svip",
+			"list": [
+				{
+					"id": "5",
+					"title": "svip",
+					"time": "1",
+					"price": "19.99",
+					"isOpen": false
+				},
+				{
+					"id": "6",
+					"title": "svip",
+					"time": "3",
+					"price": "29.99",
+					"isOpen": false
+				},
+				{
+					"id": "7",
+					"title": "svip",
+					"time": "6",
+					"price": "65.99",
+					"isOpen": false
+				},
+				{
+					"id": "8",
+					"title": "svip",
+					"time": "12",
+					"price": "109.99",
+					"isOpen": false
+				}
+			]
+		}
+	],
+	"freedList": [
+		{
+			"name": "vip",
+			"list": [
+				{
+					"id": "1",
+					"title": "会员勋章",
+					"imgUrl": "img/member/m_01.png"
+				},
+				{
+					"id": "2",
+					"title": "头像边框",
+					"imgUrl": "img/member/m_02.png"
+				},
+				{
+					"id": "3",
+					"title": "尊贵名片",
+					"imgUrl": "img/member/m_03.png"
+				},
+				{
+					"id": "4",
+					"title": "聊天气泡",
+					"imgUrl": "img/member/m_04.png"
+				},
+				{
+					"id": "5",
+					"title": "私人客服",
+					"imgUrl": "img/member/m_05.png"
+				},
+				{
+					"id": "6",
+					"title": "专属礼物",
+					"imgUrl": "img/member/m_06.png"
+				},
+				{
+					"id": "7",
+					"title": "专属弹幕",
+					"imgUrl": "img/member/m_07.png"
+				},
+				{
+					"id": "8",
+					"title": "免费翻译",
+					"imgUrl": "img/member/m_08.png"
+				},
+				{
+					"id": "9",
+					"title": "查看喜欢",
+					"imgUrl": "img/member/m_09.png"
+				},
+				{
+					"id": "10",
+					"title": "醒目红名",
+					"imgUrl": "img/member/m_10.png"
+				},
+				{
+					"id": "11",
+					"title": "专属座驾",
+					"imgUrl": "img/member/m_14.png"
+				},
+				{
+					"id": "12",
+					"title": "查看来访",
+					"imgUrl": "img/member/m_15.png"
+				},
+				{
+					"id": "13",
+					"title": "更多邂逅机会",
+					"imgUrl": "img/member/m_16.png"
+				}
+			]
+		},
+		{
+			"name": "svip",
+			"list": [
+				{
+					"id": "1",
+					"title": "会员勋章",
+					"imgUrl": "img/member/m_01.png"
+				},
+				{
+					"id": "2",
+					"title": "头像边框",
+					"imgUrl": "img/member/m_02.png"
+				},
+				{
+					"id": "3",
+					"title": "尊贵名片",
+					"imgUrl": "img/member/m_03.png"
+				},
+				{
+					"id": "4",
+					"title": "聊天气泡",
+					"imgUrl": "img/member/m_04.png"
+				},
+				{
+					"id": "5",
+					"title": "私人客服",
+					"imgUrl": "img/member/m_05.png"
+				},
+				{
+					"id": "6",
+					"title": "专属礼物",
+					"imgUrl": "img/member/m_06.png"
+				},
+				{
+					"id": "7",
+					"title": "专属弹幕",
+					"imgUrl": "img/member/m_07.png"
+				},
+				{
+					"id": "8",
+					"title": "免费翻译",
+					"imgUrl": "img/member/m_08.png"
+				},
+				{
+					"id": "9",
+					"title": "查看喜欢",
+					"imgUrl": "img/member/m_09.png"
+				},
+				{
+					"id": "10",
+					"title": "醒目红名",
+					"imgUrl": "img/member/m_10.png"
+				},
+				{
+					"id": "11",
+					"title": "专属座驾",
+					"imgUrl": "img/member/m_11.png"
+				},
+				{
+					"id": "12",
+					"title": "查看来访",
+					"imgUrl": "img/member/m_12.png"
+				},
+				{
+					"id": "13",
+					"title": "更多邂逅机会",
+					"imgUrl": "img/member/m_13.png"
+				}
+			]
+		}
+	],
+	"introduceTabList": [
+		{
+			"id": "1",
+			"imgUrl": "img/member/d_01.png",
+			"imgUrlActive": "img/member/ds_01.png"
+		},
+		{
+			"id": "2",
+			"imgUrl": "img/member/d_02.png",
+			"imgUrlActive": "img/member/ds_02.png"
+		},
+		{
+			"id": "3",
+			"imgUrl": "img/member/d_03.png",
+			"imgUrlActive": "img/member/ds_03.png"
+		},
+		{
+			"id": "4",
+			"imgUrl": "img/member/d_04.png",
+			"imgUrlActive": "img/member/ds_04.png"
+		},
+		{
+			"id": "5",
+			"imgUrl": "img/member/d_05.png",
+			"imgUrlActive": "img/member/ds_05.png"
+		},
+		{
+			"id": "6",
+			"imgUrl": "img/member/d_06.png",
+			"imgUrlActive": "img/member/ds_06.png"
+		},
+		{
+			"id": "7",
+			"imgUrl": "img/member/d_07.png",
+			"imgUrlActive": "img/member/ds_07.png"
+		},
+		{
+			"id": "8",
+			"imgUrl": "img/member/d_08.png",
+			"imgUrlActive": "img/member/ds_08.png"
+		},
+		{
+			"id": "9",
+			"imgUrl": "img/member/d_09.png",
+			"imgUrlActive": "img/member/ds_09.png"
+		},
+		{
+			"id": "10",
+			"imgUrl": "img/member/d_10.png",
+			"imgUrlActive": "img/member/ds_10.png"
+		},
+		{
+			"id": "11",
+			"imgUrl": "img/member/d_11.png",
+			"imgUrlActive": "img/member/ds_11.png"
+		},
+		{
+			"id": "12",
+			"imgUrl": "img/member/d_12.png",
+			"imgUrlActive": "img/member/ds_12.png"
+		},
+		{
+			"id": "13",
+			"imgUrl": "img/member/d_13.png",
+			"imgUrlActive": "img/member/ds_13.png"
+		}
+	],
+	"introduceInsList": [
+		{
+			"id": "1",
+			"title": "会员勋章",
+			"imgUrl": "img/member/m_01.png"
+		},
+		{
+			"id": "2",
+			"title": "头像边框",
+			"imgUrl": "img/member/m_02.png"
+		},
+		{
+			"id": "3",
+			"title": "尊贵名片",
+			"imgUrl": "img/member/m_03.png"
+		},
+		{
+			"id": "4",
+			"title": "聊天气泡",
+			"imgUrl": "img/member/m_04.png"
+		},
+		{
+			"id": "5",
+			"title": "私人客服",
+			"imgUrl": "img/member/m_05.png"
+		},
+		{
+			"id": "6",
+			"title": "专属礼物",
+			"imgUrl": "img/member/m_06.png"
+		},
+		{
+			"id": "7",
+			"title": "专属弹幕",
+			"imgUrl": "img/member/m_07.png"
+		},
+		{
+			"id": "8",
+			"title": "免费翻译",
+			"imgUrl": "img/member/m_08.png"
+		},
+		{
+			"id": "9",
+			"title": "查看喜欢",
+			"imgUrl": "img/member/m_09.png"
+		},
+		{
+			"id": "10",
+			"title": "醒目红名",
+			"imgUrl": "img/member/m_10.png"
+		},
+		{
+			"id": "11",
+			"title": "专属座驾",
+			"imgUrl": "img/member/m_11.png"
+		},
+		{
+			"id": "12",
+			"title": "查看来访",
+			"imgUrl": "img/member/m_12.png"
+		},
+		{
+			"id": "13",
+			"title": "更多邂逅机会",
+			"imgUrl": "img/member/m_13.png"
+		}
+	],
+	"liveList": [
+		{
+			"id": "1",
+			"name": "Ann🖤🔥",
+			"country": "俄罗斯",
+			"city": "俄罗斯",
+			"img": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/icon/100108961/20181130125446.png",
+			"fans": "188",
+			"isLive": true
+		},
+		{
+			"id": "2",
+			"name": "Đậu Đậu",
+			"country": "越南",
+			"city": "越南",
+			"img": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/icon/100092368/2018106104602.png",
+			"fans": "1024",
+			"isLive": true
+		},
+		{
+			"id": "3",
+			"name": "佛系主播",
+			"country": "中国",
+			"city": "沈阳",
+			"img": "http://www.xxshow.com/images/indexmiddle/D26726DD-E65B-4361-9030-98C2F968551D.png",
+			"fans": "88",
+			"isLive": true
+		},
+		{
+			"id": "4",
+			"name": "九天揽月",
+			"country": "中国",
+			"city": "郑州",
+			"img": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/icon/100096935/2018087101902.png",
+			"fans": "8888",
+			"isLive": false
+		},
+		{
+			"id": "5",
+			"name": "Elle_doll👄",
+			"country": "俄罗斯",
+			"city": "俄罗斯",
+			"img": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/icon/100118006/20181210204242.png",
+			"fans": "2619",
+			"isLive": false
+		},
+		{
+			"id": "6",
+			"name": "Siox Raymon",
+			"country": "印度",
+			"city": "印度",
+			"img": "http://outcomebucketxxshow.oss-cn-hangzhou.aliyuncs.com/images/icon/100115287/20181212011100.png",
+			"fans": "3708",
+			"isLive": false
+		}
+	],
+	"gradeList": {
+		"id": "1",
+		"headImg": "http://picbothlive1.oss-cn-hangzhou.aliyuncs.com/icon/register/A18F804BB74543058B0D0324CE1A62A2.png?x-oss-process=style/imageBig",
+		"lv": "29",
+		"num": "59",
+		"nextNum": "41",
+		"list": [
+			{
+				"id": "1",
+				"imgUrl": "img/grade/i_01.png",
+				"imgUrlActive": "img/grade/ia_01.png",
+				"title": "点亮等级标签",
+				"lock": "LV1解锁",
+				"isLock": true,
+				"getTerms": "LV1及以上用户"
+			},
+			{
+				"id": "2",
+				"imgUrl": "img/grade/i_02.png",
+				"imgUrlActive": "img/grade/ia_02.png",
+				"title": "头像挂件",
+				"lock": "LV15解锁",
+				"isLock": true,
+				"getTerms": "LV15及以上用户"
+			},
+			{
+				"id": "3",
+				"imgUrl": "img/grade/i_03.png",
+				"imgUrlActive": "img/grade/ia_03.png",
+				"title": "个性名片",
+				"lock": "LV20解锁",
+				"isLock": true,
+				"getTerms": "LV20及以上用户"
+			},
+			{
+				"id": "4",
+				"imgUrl": "img/grade/i_04.png",
+				"imgUrlActive": "img/grade/ia_04.png",
+				"title": "特效进场",
+				"lock": "LV30解锁",
+				"isLock": false,
+				"getTerms": "LV30及以上用户"
+			},
+			{
+				"id": "5",
+				"imgUrl": "img/grade/i_05.png",
+				"imgUrlActive": "img/grade/ia_05.png",
+				"title": "专属礼物",
+				"lock": "LV50解锁",
+				"isLock": false,
+				"getTerms": "LV50及以上用户"
+			}
+		]
+	},
+	"anchorList": {
+		"id": "2",
+		"headImg": "http://picbothlive1.oss-cn-hangzhou.aliyuncs.com/icon/register/A18F804BB74543058B0D0324CE1A62A2.png?x-oss-process=style/imageBig",
+		"lv": "6",
+		"num": "11",
+		"nextNum": "89",
+		"list": [
+			{
+				"id": "1",
+				"imgUrl": "img/grade/a_01.png",
+				"imgUrlActive": "img/grade/as_01.png",
+				"title": "特权贴纸",
+				"lock": "BLV5解锁",
+				"isLock": true,
+				"getTerms": "BLV5及以上用户"
+			},
+			{
+				"id": "2",
+				"imgUrl": "img/grade/a_02.png",
+				"imgUrlActive": "img/grade/as_02.png",
+				"title": "禁言特权",
+				"lock": "BLV30解锁",
+				"isLock": false,
+				"getTerms": "BLV30及以上用户"
+			},
+			{
+				"id": "3",
+				"imgUrl": "img/grade/a_03.png",
+				"imgUrlActive": "img/grade/as_03.png",
+				"title": "申请上热门",
+				"lock": "BLV40解锁",
+				"isLock": false,
+				"getTerms": "BLV40及以上用户"
+			}
+		]
+	},
+	"helpList": [
+		{
+			"id": "1",
+			"name": "账号问题",
+			"imgUrl": "img/mine/h_01.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "如何注册账号"
+				},
+				{
+					"id": "2",
+					"title": "如何登陆APP"
+				}
+			]
+		},
+		{
+			"id": "2",
+			"name": "充值问题",
+			"imgUrl": "img/mine/h_02.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "如何查询充值记录"
+				},
+				{
+					"id": "2",
+					"title": "充值未到帐或充值有误"
+				}
+			]
+		},
+		{
+			"id": "3",
+			"name": "直播问题",
+			"imgUrl": "img/mine/h_03.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "如何开启直播"
+				},
+				{
+					"id": "2",
+					"title": "如何设置及更换封面"
+				},
+				{
+					"id": "3",
+					"title": "如何上热门"
+				}
+			]
+		},
+		{
+			"id": "4",
+			"name": "提现问题",
+			"imgUrl": "img/mine/h_04.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "为什么我提现不成功"
+				},
+				{
+					"id": "2",
+					"title": "提现有手续费吗？"
+				}
+			]
+		},
+		{
+			"id": "5",
+			"name": "封禁申诉问题",
+			"imgUrl": "img/mine/h_05.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "什么情况下会被封号"
+				},
+				{
+					"id": "2",
+					"title": "如何申诉"
+				}
+			]
+		},
+		{
+			"id": "6",
+			"name": "更多问题",
+			"imgUrl": "img/mine/h_06.png",
+			"list": [
+				{
+					"id": "1",
+					"title": "如何清理缓存"
+				},
+				{
+					"id": "2",
+					"title": "如何加入黑名单"
+				}
+			]
+		}
+	]
+}

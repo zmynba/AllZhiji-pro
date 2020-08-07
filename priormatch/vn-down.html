@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>BothLive</title>
+		<!--<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />-->
+		<link rel="stylesheet" href="page/css/main.css?v=20190125" />
+		<link rel="stylesheet" href="page/css/index.css?v=20190125" />
+		<link rel="stylesheet" href="css/login.css?v=20190605" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+			.sssdown-bg{
+			background: #fff;
+			}
+			.down-f {
+				position: fixed;
+				bottom: 0;
+				background: #00000080;
+				padding: 5px;
+				width: 100%;
+			}
+			.down-p {
+			    color: #efefef;
+			    text-align: center;
+			    font-size: 9px;
+				    line-height: 12px;
+			}
+		</style>
+		<meta property="og:url" content="http://wap.bothlive.com/down.html" />
+		<meta property="og:title" content="BothLive-The most entertaining Social & Live App" />
+		<meta property="og:image" content="http://wap.bothlive.com/image/logo@2x.png" />
+		<meta property="og:description" content="Download app!" /> 
+	</head>
+	<body>
+		<div id="bothdown" v-cloak class="main-box sssdown-bg" >
+
+				<img src="image/vndowntop.png" class="down-img" >
+				<div @click="down()" :style="[styleObj2]">
+					<div class="down-bg">{{ bothAnniu }}</div>
+				</div>
+				<img :src="bothDownBotton" class="down-img"  >
+				
+				<div v-show="wxshow == 1" class="down-wx-bg" style="display:none;"></div>
+				<div v-show="wxshow == 1" class="down-wx" style="display:none;">
+					<div class="wx-font">{{ wxFont1 }}</div>
+					<div class="wx-font">{{ wxFont2 }}<img class="wx-img1" src="image/wx1.png"></div>
+					<div class="wx-font">{{ wxFont3 }}</div>
+					<img class="wx-img2" src="image/wx2.png">
+				</div>
+				<div class="down-f">
+					<div class="down-p">MF VIETNAM INFORMATION TECHNOLOGY COMPANY LIMITED</div>
+					<div class="down-p">199 Đien Bien Phu Str, Ward 15, Binh Thanh Dist, Ho Chi Minh City</div>
+					<div class="down-p">Email: info@mfvietnam.com</div>
+				</div>
+		</div>
+		
+		<script src="page/js/jquery-3.1.1.min.js"></script>
+		<script src="page/js/vue.js"></script>
+		<script src="page/js/down.js?fe43"></script>
+	</body>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161391373-2"></script>
+	<script>
+	   window.dataLayer = window.dataLayer || [];
+	   function gtag(){dataLayer.push(arguments);}
+	   gtag('js', new Date());
+	 
+	   gtag('config', 'UA-161391373-2');
+	</script>
+</html>
