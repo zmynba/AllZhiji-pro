@@ -1,0 +1,102 @@
+/********************公共样式**************************/
+* {
+	font-family: STXihei, "Microsoft YaHei";
+	font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+}
+
+.contact_us_guild {
+	padding: 0 10px;
+}
+
+.contact_us_title {
+	font-size: 18px;
+	color: #000;
+	font-weight: 400;
+	padding-top: 25px;
+}
+
+.contact_us_up {
+	padding-top: 31px;
+}
+
+.contact_us_name,
+.contact_us_phone>span,
+.contact_us_phone>p,
+.contact_us_phone2>span,
+.contact_us_phone2>p,
+.contact_us_name2 {
+	font-size: 13px;
+	color: #333;
+	font-weight: 400;
+}
+
+.contact_us_name,
+.contact_us_phone>span,
+.contact_us_phone>p {
+	padding-top: 5px;
+}
+
+.contact_us_phone>p,
+.contact_us_phone2>p {
+	color: #F9610F;
+}
+
+.contact_us_phone2 {
+	padding-top: 2px;
+}
+
+.contact_us_host {
+	padding: 20px 10px;
+}
+
+.contact_us_top,
+.contact_us_top2 {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.contact_us_top_vi,
+.contact_us_top2_vi {
+	width: 70%;
+}
+
+.contact_us_top_en,
+.contact_us_top2_en {
+	width: 75%;
+}
+
+.contact_us_top {
+	padding-top: 24px;
+}
+
+.contact_us_top2 {
+	padding-top: 30px;
+}
+
+.contact_us_down {
+	padding-left: 20px;
+}
+
+.contact_us_toast {
+	display: table;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10999;
+	min-width: 50px;
+	max-width: 70%;
+	background: rgba(0, 0, 0, .8);
+	border-radius: 5px;
+	padding: 10px 15px;
+	font-size: 13px;
+	color: #fff;
+	line-height: 20px;
+}
+
+.ChinaPhone {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	z-index: -100;
+}

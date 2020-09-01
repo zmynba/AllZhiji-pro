@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no">
+		<title>收益详情</title>
+		<meta name="keywords" content="BothLive">
+		<meta name="description" content="BothLive">
+		<link rel="stylesheet" href="../css/main.css?v20190816" />
+		<link rel="stylesheet" href="../css/index.css?v20200721" />
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+			.detail-bg{
+				background:#EBEBEB;
+			}
+			.head-part{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 100px;
+				background: #fff;
+				padding: 0 25px;
+			}
+			.head-part img{
+				width: 40px;
+			}
+			.head-part span:nth-of-type(1){
+				font-size: 30px;
+			}
+			.head-part span:nth-of-type(2){
+				width: 40px;
+			}
+			.detail-part{
+				margin-top: 20px;
+				background: #fff;
+				padding-left:25px;
+			}
+			.detail-one{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				height: 110px;
+				padding-right:25px;
+				border-bottom: 1px solid #ddd;
+
+			}
+			.detail-one span{
+				font-size: 28px;
+				color: #333;
+			}
+			.detail-one span:nth-of-type(2){
+				color: #a0a0a0;
+			}
+		</style>
+	</head>
+	<body class="detail-bg">
+		<div id="detail" v-cloak dir="auto">
+			<!--主体-->
+			<!-- <div class="head-part">
+				<img src="../img/back1.png" alt="" onclick="history.back()">
+				<span>{{interLang.invite_income_detail}}</span>
+				<span></span>
+			</div> -->
+
+			<div class="detail-part">
+				<div class="detail-one">
+					<span>{{interLang.invite_friendid}}</span>
+					<span>{{iteminfo.uid}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_chargetype}}</span>
+					<span>{{iteminfo.goods_type}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_paytype}}</span>
+					<span>{{iteminfo.channel}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_income_num}}（USD）</span>
+					<span>{{iteminfo.amount}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_charge_amount}}（USD）</span>
+					<span>{{iteminfo.dollarincome}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_get_rate}}</span>
+					<span>{{iteminfo.rate}}%</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_percent_reward}}</span>
+					<span>{{iteminfo.dollarself}}</span>
+				</div>
+				<div class="detail-one">
+					<span>{{interLang.invite_charge_time}}</span>
+					<span>{{iteminfo.paytime}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
+				document.write("<script src='../../cordova_bothlive/cordova.js?sddssss'><\/script>");
+			}
+		</script>
+		<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+		<script src="../js/lang-zhu.js"></script>
+        <script src="../js/lang.js?999"></script>
+		<script src="../js/app.js"></script>
+		<script>
+			var vm=new Vue({
+				el:'#detail',
+				data:{
+					interLang:interLang_P,
+					iteminfo:{},
+				},
+				created(){
+					var obj=decodeURI(location.search.split("=")[1]);
+					this.iteminfo=JSON.parse(obj);
+					console.log(this.iteminfo)
+				},
+				mounted(){
+					document.title=this.interLang.invite_income_detail;
+				},
+				methods:{
+					
+				}
+			})
+
+			if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
+                function navBackClicked () {
+                    goToBack(true);
+                }
+                function goToBack(toBack) {
+                    //alert(41);
+                    window.BothLive.closeWindow(null, null);
+                }
+            
+                function enableBackHistory(enable) {
+                    //alert(31);
+                    window.BothLive.enableBackHistory(null, null, {"enable": enable});
+                }
+                function deviceready() {
+                    enableBackHistory(true);
+                }
+                document.addEventListener('deviceready', deviceready, false); 
+            }
+		</script>
+	</body>
+</html>

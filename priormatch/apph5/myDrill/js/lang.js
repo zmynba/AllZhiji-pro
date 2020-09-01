@@ -24,7 +24,6 @@ var GetRequest = function(id) {
 	}
 }
 lang = GetRequest('__lg') ? GetRequest('__lg') : GetRequest('lang');
-
 if(lang == 'ru') {
     imyDrillLang = {
 		indexTitle: '我的优钻',
@@ -43,7 +42,16 @@ if(lang == 'ru') {
 		MDDrill: 'U Diamond',
 		from:'Đến từ',
     };
-}  else if(lang == 'zhtw') {
+}else if(lang == 'zh') {
+    imyDrillLang = {
+		indexTitle: '我的优钻',
+		MDrecording: '记录',
+		noshowGift: '还没有收到过礼物',
+		MDAll: '全部',
+		MDDrill: '优钻',
+		from:'来自',
+    };
+}else if(lang == 'zhtw') {
     imyDrillLang = {
 		indexTitle: '我的優鑽',
 		MDrecording: '記錄',
@@ -61,7 +69,7 @@ if(lang == 'ru') {
 		MDDrill:'U Diamond',
 		from:'보내자 ',
     };
-} else {
+}else {
     imyDrillLang = {
 		indexTitle: 'My Udiamonds',
 		MDrecording:'Record',

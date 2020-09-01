@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750,user-scalable=no">
+		<title>邀请好友返奖励</title>
+		<meta name="keywords" content="BothLive">
+		<meta name="description" content="BothLive">
+		<link rel="stylesheet" href="../css/main.css?v20190816" />
+		<link rel="stylesheet" href="../css/index.css?v20200721" />
+        <style type="text/css">
+        	[v-cloak]{
+				display: none;
+            }
+            body{
+                background: #ff9432;
+            }
+            .code-part{
+				width: 750px;
+				height: 931px;
+				background: url(../img/yao-bk.png) no-repeat;
+				margin: 0 auto;
+				display: flex;
+				flex-direction: column;
+                align-items: center;
+                padding-top:427px ;
+                box-sizing: border-box;
+			}
+            .code-con{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 30px 40px;
+				border: 4px dashed #FFA37F;
+				border-radius:16px;
+				margin-bottom: 40px;
+			}
+			.code-con span{
+				color: #fff;
+				font-size: 30px;
+			}
+            .code-con b{
+                color: #fff;
+				font-size: 30px;
+                font-weight: normal;
+            }
+			.code-con span:nth-of-type(2){
+				display: inline-flex;
+				width: 90px;
+				height: 46px;
+				justify-content: center;
+				align-items: center;
+				color: #F3511E;
+				background: #fff;
+				border-radius:10px;
+				margin-left: 30px;
+            }
+            .num-part{
+                width: 704px;
+                margin: 0 auto;
+                position: relative;
+                top: -120px;
+            }
+            .num-part-m{
+                width: 704px;
+                min-height: 452px;
+                background: url(../img/con-m.png) repeat-y;
+                padding: 32px 50px 0 50px;
+                box-sizing: border-box;
+            }
+            .num-part-t{
+                position: relative;
+                top: 10px;
+            }
+            .num-part-b{
+                position: relative;
+                top: -1px;
+            }
+            .num-title{
+                color: #4B290D;
+                font-size: 28px;
+                display: flex;
+                align-items: center;
+            }
+            .num-title img{
+                margin-left: 10px;
+            }
+            .num-middle{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 32px;
+                margin-bottom: 53px;
+            }
+            .num-middle span:nth-of-type(1){
+                display: inline-flex;
+                flex-direction: column;
+
+            }
+            .num-middle-num{
+                color: #F3511E;
+                font-size: 54px;
+                font-weight: normal;
+            }
+            .num-middle-tip{
+                color: #717171;
+                font-size: 24px;
+                font-weight: normal;
+                margin-top: 15px;
+            }
+            .num-middle span:nth-of-type(2){
+                width:140px;
+                height:64px;
+                background:linear-gradient(90deg,rgba(253,120,54,1),rgba(241,77,43,1));
+                border-radius:10px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 28px;
+                color: #fff;
+            }
+            .line{
+                width: 600px;
+                height: 2px;
+                background: #F8C9B5;
+            }
+            .two-block{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 40px;
+            }
+            .two-block-l{
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-right: 50px;
+            }
+            .two-block-l span:nth-of-type(1){
+                color: #F79F0A;
+                font-size: 48px;
+            }
+            .two-block-l span:nth-of-type(2){
+                color: #4B290D;
+                font-size: 28px;
+                display: inline-flex;
+                margin-top: 15px;
+                align-items: center;
+                text-align: center;
+            }
+            .two-block-r{
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .two-block-r span:nth-of-type(1){
+                color: #50A2FF;
+                font-size: 48px;
+            }
+            .two-block-r span:nth-of-type(2){
+                color: #4B290D;
+                font-size: 28px;
+                display: inline-flex;
+                margin-top: 15px;
+                align-items: center;
+                text-align: center;
+            }
+            .two-block-l span:nth-of-type(2) img{
+                margin-left: 10px;
+            }
+
+            .content-part{
+                width: 750px;
+                min-height: 700px;
+                background:linear-gradient( #ff632f,#ff9432);
+                padding-bottom: 120px;
+                margin-top: -1px;
+            }
+            .btn-part{
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 750px;
+                height: 190px;
+                background: url(../img/yao-jian.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+                padding-top: 20px;
+                box-sizing: border-box;
+            }
+            .btn-an{
+                width: 632px;
+                height: 98px;
+                background: url(../img/press-btn.png) no-repeat;
+                color: #fff;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .block-part{
+                margin-top: -70px;
+            }
+            .block-title{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                z-index: 2;
+            }
+            .block-part .block-con{
+                margin-bottom: 50px;
+            }
+            .block-con{
+                margin-top: -50px;
+            }
+            .block-title img:nth-of-type(1){
+                position: relative;
+                left:1px;
+            }
+            .block-title img:nth-of-type(2){
+                position: relative;
+                right:1px;
+            }
+            .title-mid{
+                display: inline-flex;
+                min-width: 100px;
+                height: 112px;
+                justify-content: center;
+                align-items: center;
+                background: url(../img/title-m.png) repeat-x;
+                color: #4B290D;
+                font-size: 32px;
+            }
+            .con-one{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                max-height: 999999px;
+            }
+            .con-content{
+                width: 704px;
+                min-height: 300px;
+                background: url(../img/con-m.png) repeat-y;
+                padding: 32px 50px 0 50px;
+                box-sizing: border-box;
+                padding-bottom: 20px;
+            }
+            .con-one .con-block:nth-of-type(1){
+                position: relative;
+                top: 1px;
+            }
+            .con-one .con-block:nth-of-type(2){
+                position: relative;
+                top: -1px;
+            }
+            .con-block{
+                display: flex;
+            }
+            .con-one-title{
+                color: #000003;
+                font-size: 30px;
+                margin-bottom: 35px;
+            }
+            .con-one-title span{
+                color: #F4521E;
+                font-size: 30px;
+            }
+            .con-word{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+            .con-word span:nth-of-type(1){
+                color: #000003;
+                font-size: 26px;
+                margin:30px 0 15px;
+                font-weight: 600;
+            }
+            .con-word span:nth-of-type(1) img{
+                margin-right: 20px;
+            }
+            .con-word span:nth-of-type(2){
+                color: #727171;
+                font-size: 25px;
+                line-height: 40px;
+            }
+            .con-word span:nth-of-type(3){
+                color: #727171;
+                font-size: 25px;
+            }
+            .tips-b{
+                color: #B88836;
+                font-size: 25px;
+                font-weight: normal;
+            }
+            .mg-10{
+                margin-top: 10px;
+            }
+            .reward-grade{
+                margin-top: 70px;
+            }
+            .rule-one{
+                color: #787878;
+                margin-bottom: 10px;
+                line-height: 45px;
+                font-size: 25px;
+            }
+            .rule-one b{
+                color:#F4521E;
+                font-size: 25px;
+                font-weight: normal;
+                margin-left: 20px;
+            }
+            .num-middle span.grey-btn{
+                background:linear-gradient(90deg,rgba(211,211,211,1),rgba(202,200,200,1));
+            }
+            .toast>div>p{
+                font-size: 30px;
+            }
+
+            .tips-layer{
+                width: 750px;
+                height: 100vh;
+                background: rgba(0,0,0,0.6);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+            }
+            .tips-con{
+                width: 560px;
+                border-radius:30px;
+                background: #fff;
+                overflow: hidden;
+            }
+            .tips-word{
+                padding: 60px 50px 40px;
+                color: #838383;
+                font-size: 28px;
+                border: 1px  solid #D8D5DC;
+            }
+            .tips-btn{
+                display: flex;
+                color: #F3511E;
+                font-size: 30px;
+                height: 90px;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body class="reward-bg">
+        <div id="reward" v-cloak dir="auto">
+            <div class="code-part">
+                <div class="code-con">
+                    <span>{{interLang.invite_mycode}}：<b id="codespan">{{allinfo.code}}</b></span>
+                    <span @click="copyadd">{{interLang.invite_copy}}</span>
+                </div>
+            </div>
+
+            <div class="content-part">
+                <div class="num-part">
+                    <img src="../img/con-t.png" alt="" class="num-part-t">
+                    <div class="num-part-m">
+                        <div class="num-title">{{interLang.invite_balance}}<img src="../img/yao-bi.png" /></div>
+                        <div class="num-middle">
+                            <span>
+                                <b class="num-middle-num">{{allinfo.inviteincome}}</b>
+                                <b class="num-middle-tip">{{allinfo.status==1?interLang.invite_normal_account:interLang.invite_error_account}}</b>
+                            </span>
+                            <span v-if="allinfo.status==1" @click="getmoney">{{interLang.invite_get}}</span>
+                            <span v-if="allinfo.status!=1" class="grey-btn">{{interLang.invite_get}}</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="two-block">
+                            <div class="two-block-l" @click="gopage(1)">
+                                <span>{{allinfo.totalincome}}</span>
+                                <span>{{interLang.invite_total_reward}}<img src="../img/yao-bi.png" /></span>
+                            </div>
+                            <div class="two-block-r" @click="gopage(2)">
+                                <span>{{allinfo.bindnum}}</span>
+                                <span>{{interLang.invite_total_nums}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="../img/con-b.png" alt="" class="num-part-b">
+                </div>
+
+                <div class="block-part">
+                    <div class="block-title" v-if="lang!='ar'">
+                        <img src="../img/title-l.png" alt="">
+                        <span class="title-mid">{{interLang.invite_reward}}</span>
+                        <img src="../img/title-r.png" alt="">
+                    </div>
+                    <div class="block-title" v-else>
+                        <img src="../img/title-r.png" alt="">
+                        <span class="title-mid">{{interLang.invite_reward}}</span>
+                        <img src="../img/title-l.png" alt="">
+                    </div>
+                    <div class="block-con">
+                        <div class="con-one">
+                            <img src="../img/con-t.png" class="con-block" />
+                            <div class="con-content">
+                                <div class="con-one-title">
+                                    {{interLang.invite_charge_reward}}：<span>{{interLang.invite_percent4}}</span>
+                                </div>
+                                <div class="line"></div>
+                                <div class="con-word">
+                                    <span><img src="../img/rect.png" />{{interLang.invite_intro}}</span>
+                                    <span>{{interLang.invite_now_gold}}</span>
+                                    <span>{{interLang.invite_gold_money}}<b class="tips-b">8*4%</b></span>
+                                </div>
+                                <div class="con-word">
+                                    <span><img src="../img/rect.png" />{{interLang.invite_income_preview}}</span>
+                                    <span>{{interLang.invite_case_one}}<b class="tips-b">10000*4%</b>，{{interLang.invite_get_gold400}}</span>
+                                </div>
+
+                                <div class="con-one-title reward-grade">
+                                    {{interLang.invite_grade_reward}}<span>{{interLang.invite_percent8}}</span>
+                                </div>
+                                <div class="line"></div>
+                                <div class="con-word">
+                                    <span><img src="../img/rect.png" />{{interLang.invite_intro}}</span>
+                                    <span>{{interLang.invite_grade_nowget}}</span>
+                                    <span>{{interLang.invite_nums_grade}}<b class="tips-b">*8%</b></span>
+                                </div>
+                                <div class="con-word">
+                                    <span><img src="../img/rect.png" />{{interLang.invite_income_preview}}</span>
+                                    <span>{{interLang.invite_case_two}}<b class="tips-b">9.99*8%</b>，{{interLang.invite_gold_x}}</span>
+                                </div>
+                            </div>
+                            <img src="../img/con-b.png" class="con-block" />
+                        </div>
+                    </div>
+
+                    <div class="block-title" v-if="lang!='ar'">
+                        <img src="../img/title-l.png" alt="">
+                        <span class="title-mid">{{interLang.invite_rules}}</span>
+                        <img src="../img/title-r.png" alt="">
+                    </div>
+                    <div class="block-title" v-else>
+                        <img src="../img/title-r.png" alt="">
+                        <span class="title-mid">{{interLang.invite_rules}}</span>
+                        <img src="../img/title-l.png" alt="">
+                    </div>
+                    <div class="block-con">
+                        <div class="con-one">
+                            <img src="../img/con-t.png" class="con-block" />
+                            <div class="con-content">
+                                <div class="rule-one">{{interLang.invite_rules_con1}}</div>
+                                <div class="rule-one">{{interLang.invite_rules_con2}}</div>
+                                <div class="rule-one">{{interLang.invite_rules_con3}}</div>
+                                <div class="rule-one">{{interLang.invite_rules_con4}}</div>
+                                <div class="rule-one">{{interLang.invite_rules_con5}}</div>
+                                <div class="rule-one">{{interLang.invite_rules_con6}}<b>11111</b></div>
+                            </div>
+                            <img src="../img/con-b.png" class="con-block" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="btn-part">
+                    <div class="btn-an" @click="goinvite">{{interLang.invite_go}}</div>
+                    <div style="width: 1px;overflow:hidden;opacity: 0;" id="inviteurl">{{inviteurl}}</div>
+                </div>
+            </div>
+
+            <div class="tips-layer" v-show="tipsshow">
+                <div class="tips-con">
+                    <div class="tips-word">{{interLang.invite_copy_href}}</div>
+                    <div class="tips-btn" @click="tipsshow=false;">{{interLang.invite_sure}}</div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+			if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
+				document.write("<script src='../../cordova_bothlive/cordova.js?sddssss'><\/script>");
+			}
+		</script>
+        <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+        <script src="../js/lang-zhu.js"></script>
+        <script src="../js/lang.js"></script>
+        <script src="../js/app.js"></script>
+        <script>
+            var vm=new Vue({
+                el:'#reward',
+                data:{
+                    interLang:interLang_P,
+                    allinfo:{},
+
+                    inviteurl:"",
+                    tipsshow:false,
+                    lang:lang
+                },
+                mounted(){
+                    this.getinfo()
+                    if(lang!="zh"){
+                        $(".code-con span:nth-of-type(2)").width(120).css("font-size","24px")
+                    }
+                    if(lang!="zh"&&lang=="ar"){
+                        $(".code-part").css("background","url(../img/yao-bk_ar.png)")
+                        $(".block-title img:nth-of-type(1)").css("left","-1px")
+                        $(".block-title img:nth-of-type(2)").css("right","-1px")
+                    }else if(lang!="zh"&&lang=="ru"){
+                        $(".code-part").css("background","url(../img/yao-bk_ru.png)")
+                    }else if(lang!="zh"&&lang=="vi"){
+                        $(".code-part").css("background","url(../img/yao-bk_vi.png)")
+                    }else if(lang!="zh"){
+                        $(".code-part").css("background","url(../img/yao-bk_en.png)")
+                    }
+                    document.title=this.interLang.invite_friend_reward;
+                },
+                methods:{
+					getinfo(){
+                        var searchurl=location.search;
+                        var that=this;
+						$.ajax({
+                            type:'GET',
+                            url:'http://m.api.bothlive.com/promote/inviteinfo/'+searchurl,
+                            data:'',
+                            xhrFields: {
+                                withCredentials: true
+                            },
+							success:function(res){
+                                if(res.errno==0){
+                                    that.allinfo=res.data;
+                                    that.inviteurl="http://wap.bothlive.com/apph5/invite/index.html?invitecode="+res.data.code;
+                                }
+							}
+						})
+                    },
+                    copyadd(){
+                        var that=this;
+                        var range = document.createRange();
+                            range.selectNode(document.getElementById('codespan'));
+                            var selection = window.getSelection();
+                            if(selection.rangeCount > 0) selection.removeAllRanges();
+                            selection.addRange(range);
+                            document.execCommand("copy");
+                            app.showToast({
+                                title:that.interLang.invite_copy_success
+                            })
+                    },
+                    goinvite(){
+                        var range = document.createRange();
+                            range.selectNode(document.getElementById('inviteurl'));
+                            var selection = window.getSelection();
+                            if(selection.rangeCount > 0) selection.removeAllRanges();
+                            selection.addRange(range);
+                            document.execCommand("copy");
+                            this.tipsshow=true;
+                    },
+                    getmoney(){
+                        var that=this;
+                        if(this.allinfo.totalincome<100){
+                            app.showToast({
+                                title:that.interLang.invite_more100
+                            })
+                        }else{
+                            app.showToast({
+                                title:that.interLang.invite_fun_now
+                            })
+                        }
+                    },
+                    gopage(n){
+                        console.log(n)
+                        if(n==1){
+                            console.log(n)
+                            location.href=location.href.replace("reward.html","index.html")
+                        }else{
+                            location.href=location.href.replace("reward.html","allnums.html")
+                        }
+                    }
+                }
+            })
+
+            if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
+                function navBackClicked () {
+                    goToBack(true);
+                }
+                function goToBack(toBack) {
+                    //alert(41);
+                    window.BothLive.closeWindow(null, null);
+                }
+            
+                function enableBackHistory(enable) {
+                    //alert(31);
+                    window.BothLive.enableBackHistory(null, null, {"enable": enable});
+                }
+                function deviceready() {
+                    enableBackHistory(true);
+                }
+                document.addEventListener('deviceready', deviceready, false); 
+            }
+        </script>
+    </body>
+
+</html>

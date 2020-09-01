@@ -134,7 +134,7 @@ if(lang == 'ru') {
         charmTxt2: '(Giới hạn mỗi ngày+30)',
         diamonds: 'Diamond'
     };
-} /*else if(lang == 'zh') {
+} else if(lang == 'zh') {
     interLang = {
         indexTitle: '等级特权',
         hostPrivilege: '主播特权',
@@ -188,7 +188,7 @@ if(lang == 'ru') {
         charmTxt2: '(每日上限+30)',
         diamonds: '钻石'
     };
-}*/ else if(lang == 'zhtw') {
+} else if(lang == 'zhtw') {
     interLang = {
         indexTitle: '等級特權',
         hostPrivilege: '主播特權',
